@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "339723997591",
+    "project_id": "inhomecareapp",
+    "storage_bucket": "inhomecareapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339723997591:android:91e44d6b4125e0ba16f4d2",
+        "android_client_info": {
+          "package_name": "com.example.inhomecareapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339723997591-ploo1grf9ju6a95bkl8kh40o0ve08ue3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuoO8NSJdI3Wk4GZFN-hTy2lT5z2puFUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339723997591-ploo1grf9ju6a95bkl8kh40o0ve08ue3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

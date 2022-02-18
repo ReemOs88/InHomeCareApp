@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">InHomeCareApp</string>
+    <string name="customer">Customer</string>
+    <string name="care_giver">Care giver</string>
+    <string name="Name">Customer Name</string>
+    <string name="customer_name">Name</string>
+    <string name="customer_password">Password</string>
+    <string name="customer_email">Email</string>
+    <string name="customer_phone_number">Phone Number</string>
+    <string name="customer_register">Register</string>
+    <string name="customer_forget_password">Forget password</string>
+</resources>
