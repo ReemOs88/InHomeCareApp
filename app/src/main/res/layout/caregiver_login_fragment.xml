@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/caregiverName_login"
+        android:layout_marginTop="50.00dp"
+        android:layout_marginStart="20.00dp"
+        android:layout_marginEnd="20.00dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_shape"
+        android:textColorHint="@color/blue"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:hint="Name"/>
+    <EditText
+        android:id="@+id/caregiverPass_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_shape"
+        android:textColorHint="@color/blue"
+        app:endIconDrawable="@drawable/ic_baseline_remove_red_eye_24"
+        android:inputType="textPassword"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:hint="@string/customer_password"/>
+    <TextView
+        android:id="@+id/forget_pass_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customer_forget_password"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/_200sdp"
+        android:textColor="@color/blue"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/caregiver_loin_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        android:backgroundTint="@color/blue"
+        app:cornerRadius="30dp"
+        android:textStyle="bold"
+        android:text="Login"
+        android:textAllCaps="false" />
+
+</LinearLayout>

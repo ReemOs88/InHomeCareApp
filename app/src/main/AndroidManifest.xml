@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InHomeCareApp">
-        <activity android:name=".CustomerHome"></activity>
+        <activity
+            android:name=".CaregiverRegisterTabFragment"
+            android:exported="false" />
+        <activity
+            android:name=".CaregiverLoginTabFragment"
+            android:exported="false" />
+        <activity
+            android:name=".CaregiverLoginActivity"
+            android:exported="false" />
+        <activity android:name=".CustomerHome" />
         <activity android:name=".CustomerLoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
