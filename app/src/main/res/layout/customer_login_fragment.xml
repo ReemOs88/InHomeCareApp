@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
-        android:id="@+id/customerName_login"
+        android:id="@+id/customerEmail_login"
         android:layout_marginTop="@dimen/_50sdp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
@@ -17,9 +17,10 @@
         android:background="@drawable/edit_text_shape"
         android:textColorHint="@color/blue"
         android:paddingLeft="20dp"
+        android:inputType="textEmailAddress"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:hint="@string/customer_name"/>
+        android:hint="Email"/>
     <EditText
         android:id="@+id/customerPass_login"
         android:layout_width="match_parent"

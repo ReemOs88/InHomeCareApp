@@ -23,20 +23,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:hint="@string/customer_name"/>
-    <EditText
-        android:id="@+id/customerPass_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@drawable/edit_text_shape"
-        android:textColorHint="@color/blue"
-        android:inputType="textPassword"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:hint="@string/customer_password"/>
+
     <EditText
         android:id="@+id/customerEmail_register"
         android:layout_width="match_parent"
@@ -51,6 +38,20 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:hint="@string/customer_email"/>
+    <EditText
+        android:id="@+id/customerPass_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/edit_text_shape"
+        android:textColorHint="@color/blue"
+        android:inputType="textPassword"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:hint="@string/customer_password"/>
     <EditText
         android:id="@+id/customerPhone_register"
         android:layout_width="match_parent"

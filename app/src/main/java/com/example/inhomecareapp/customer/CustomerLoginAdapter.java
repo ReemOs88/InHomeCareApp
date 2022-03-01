@@ -1,4 +1,4 @@
-package com.example.inhomecareapp;
+package com.example.inhomecareapp.customer;
 
 import android.content.Context;
 

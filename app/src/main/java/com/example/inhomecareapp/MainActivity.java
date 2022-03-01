@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.inhomecareapp.customer.CustomerLoginActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CustomerLogin(View view) {
-        Intent intent=new Intent(MainActivity.this,CustomerLoginActivity.class);
+        Intent intent=new Intent(MainActivity.this, CustomerLoginActivity.class);
         startActivity(intent);
     }
 }

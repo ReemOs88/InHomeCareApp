@@ -9,4 +9,5 @@
     <string name="customer_phone_number">Phone Number</string>
     <string name="customer_register">Register</string>
     <string name="customer_forget_password">Forget password</string>
+    <string name="caregiver_id">Id</string>
 </resources>

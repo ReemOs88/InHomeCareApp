@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InHomeCareApp">
         <activity
-            android:name=".CaregiverRegisterTabFragment"
+            android:name=".caregiver.CaregiverRegisterTabFragment"
             android:exported="false" />
         <activity
-            android:name=".CaregiverLoginTabFragment"
+            android:name=".caregiver.CaregiverLoginTabFragment"
             android:exported="false" />
         <activity
-            android:name=".CaregiverLoginActivity"
+            android:name=".caregiver.CaregiverLoginActivity"
             android:exported="false" />
-        <activity android:name=".CustomerHome" />
-        <activity android:name=".CustomerLoginActivity" />
+        <activity android:name=".customer.CustomerHome" />
+        <activity android:name=".customer.CustomerLoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

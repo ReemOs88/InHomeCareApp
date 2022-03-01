@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CaregiverLoginActivity">
+    tools:context=".caregiver.CaregiverLoginActivity">
     <ImageView
         android:id="@+id/in_home_logo"
         android:layout_width="@dimen/_90sdp"

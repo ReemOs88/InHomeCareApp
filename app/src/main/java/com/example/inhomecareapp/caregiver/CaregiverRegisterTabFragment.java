@@ -1,4 +1,4 @@
-package com.example.inhomecareapp;
+package com.example.inhomecareapp.caregiver;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import com.example.inhomecareapp.R;
+import com.example.inhomecareapp.customer.CustomerHome;
 import com.google.android.material.button.MaterialButton;
 
 public class CaregiverRegisterTabFragment extends Fragment {
@@ -36,7 +38,7 @@ public class CaregiverRegisterTabFragment extends Fragment {
         caregiverRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),CustomerHome.class);
+                Intent intent=new Intent(getActivity(), CustomerHome.class);
                 startActivity(intent);
             }
         });

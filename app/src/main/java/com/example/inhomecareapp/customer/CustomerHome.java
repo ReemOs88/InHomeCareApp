@@ -1,8 +1,10 @@
-package com.example.inhomecareapp;
+package com.example.inhomecareapp.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.inhomecareapp.R;
 
 public class CustomerHome extends AppCompatActivity {
 
