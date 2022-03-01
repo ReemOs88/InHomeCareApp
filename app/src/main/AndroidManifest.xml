@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InHomeCareApp">
         <activity
+            android:name=".caregiver.CaregiverHome"
+            android:exported="false" />
+        <activity
             android:name=".caregiver.CaregiverRegisterTabFragment"
             android:exported="false" />
         <activity

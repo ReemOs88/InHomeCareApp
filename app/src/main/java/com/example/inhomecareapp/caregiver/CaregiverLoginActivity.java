@@ -11,7 +11,6 @@ import com.google.android.material.tabs.TabLayout;
 public class CaregiverLoginActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +24,9 @@ public class CaregiverLoginActivity extends AppCompatActivity {
                 this,tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
         tabLayout.setTranslationY(300);
         tabLayout.setAlpha(1);
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
-
     }
 }

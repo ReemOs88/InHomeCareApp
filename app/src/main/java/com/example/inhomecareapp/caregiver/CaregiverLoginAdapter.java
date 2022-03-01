@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+
 public class CaregiverLoginAdapter extends FragmentPagerAdapter {
     private final Context context;
     int totalTabs;
