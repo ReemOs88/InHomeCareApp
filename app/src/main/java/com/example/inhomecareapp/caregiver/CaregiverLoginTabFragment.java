@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.inhomecareapp.R;
-import com.example.inhomecareapp.customer.CustomerHome;
+import com.example.inhomecareapp.caregiver.CaregiverHome;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -54,7 +54,7 @@ public class CaregiverLoginTabFragment extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Intent intent=new Intent(requireContext(), CustomerHome.class);
+                                    Intent intent=new Intent(requireContext(), CaregiverHome.class);
                                     startActivity(intent);
                                     getActivity().finish();
                                 }else {
