@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         customerBtn=findViewById(R.id.customer);
+
         customerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         caregiverBtn=findViewById(R.id.caregiver);
+
         caregiverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

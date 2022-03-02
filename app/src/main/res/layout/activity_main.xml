@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:gravity="center"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -11,7 +12,6 @@
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_150sdp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_100sdp"
         android:src="@drawable/in_home_logo"/>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/customer"

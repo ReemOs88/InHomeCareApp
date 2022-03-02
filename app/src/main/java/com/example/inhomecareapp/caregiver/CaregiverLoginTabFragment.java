@@ -34,7 +34,7 @@ public class CaregiverLoginTabFragment extends Fragment {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.caregiver_login_fragment, container, false);
         caregiverEmailET = root.findViewById(R.id.caregiverEmail_login);
         caregiverPassET = root.findViewById(R.id.caregiverPass_login);
-        caregiverForgetPass = root.findViewById(R.id.caregiverPass_login);
+        caregiverForgetPass = root.findViewById(R.id.forget_pass_tv);
         caregiverLoginBtn = root.findViewById(R.id.caregiver_loin_btn);
         caregiverLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

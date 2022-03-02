@@ -11,6 +11,7 @@ import com.google.android.material.tabs.TabLayout;
 public class CaregiverLoginActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

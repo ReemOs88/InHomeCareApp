@@ -13,17 +13,15 @@
             android:name=".caregiver.CaregiverHome"
             android:exported="false" />
         <activity
-            android:name=".caregiver.CaregiverRegisterTabFragment"
-            android:exported="false" />
-        <activity
-            android:name=".caregiver.CaregiverLoginTabFragment"
-            android:exported="false" />
-        <activity
             android:name=".caregiver.CaregiverLoginActivity"
             android:exported="false" />
-        <activity android:name=".customer.CustomerHome" />
-        <activity android:name=".customer.CustomerLoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".customer.CustomerHome"
+            android:exported="false"
+            />
+        <activity android:name=".customer.CustomerLoginActivity"
+            android:exported="false"/>
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
