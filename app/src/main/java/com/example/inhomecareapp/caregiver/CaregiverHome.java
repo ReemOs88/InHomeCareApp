@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.inhomecareapp.R;
+
 public class CaregiverHome extends AppCompatActivity {
 
     @Override

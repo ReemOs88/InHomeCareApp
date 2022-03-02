@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textStyle="bold"
+        android:onClick="CaregiverLogin"
         app:cornerRadius="@dimen/_30sdp"
         android:layout_margin="@dimen/_15sdp"
         android:backgroundTint="@color/babyBlue"

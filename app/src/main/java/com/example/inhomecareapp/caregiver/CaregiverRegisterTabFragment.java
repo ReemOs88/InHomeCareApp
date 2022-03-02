@@ -31,7 +31,7 @@ public class CaregiverRegisterTabFragment extends Fragment {
     MaterialButton caregiverRegisterBtn;
     RadioButton radioButton1;
     RadioButton radioButton2;
-    private static final String TAG = "CaregiverRegisterTabFrag";
+    private static final String TAG = "CaregiverRegisterFrag";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private String caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister, caregiverAddressRegister;
@@ -86,7 +86,7 @@ public class CaregiverRegisterTabFragment extends Fragment {
                         } else {
                             String errorMessage = task.getException().getLocalizedMessage();
                             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
-                            Log.i(TAG, "onComplete: " + errorMessage);
+                            Log.i(TAG,"onComplete: "+errorMessage);
                         }
 
                     }
