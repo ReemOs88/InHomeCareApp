@@ -34,7 +34,8 @@ public class CaregiverRegisterTabFragment extends Fragment {
     private static final String TAG = "CaregiverRegisterFrag";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    private String caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister, caregiverAddressRegister;
+    private String caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister,
+            caregiverAddressRegister;
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.caregiver_register_fragment,container,false);

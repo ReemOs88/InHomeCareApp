@@ -6,7 +6,8 @@ public class CustomerData {
     public CustomerData() {
     }
 
-    public CustomerData(String customerNameRegister, String customerEmailRegister, String customerPhoneRegister, String customerAddressRegister) {
+    public CustomerData(String customerNameRegister, String customerEmailRegister, String customerPhoneRegister,
+                        String customerAddressRegister) {
         this.customerNameRegister = customerNameRegister;
         this.customerEmailRegister = customerEmailRegister;
         this.customerPhoneRegister = customerPhoneRegister;

@@ -14,6 +14,7 @@
         android:layout_marginTop="@dimen/_100sdp"
         android:src="@drawable/in_home_logo"/>
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/customer"
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center"
@@ -21,15 +22,16 @@
        android:backgroundTint="@color/blue"
         app:cornerRadius="@dimen/_30sdp"
         android:textStyle="bold"
-        android:onClick="CustomerLogin"
+
         android:text="@string/customer"
         android:textAllCaps="false"/>
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/caregiver"
         android:layout_width="@dimen/_200sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textStyle="bold"
-        android:onClick="CaregiverLogin"
+
         app:cornerRadius="@dimen/_30sdp"
         android:layout_margin="@dimen/_15sdp"
         android:backgroundTint="@color/babyBlue"

@@ -27,7 +27,7 @@ public class CaregiverLoginTabFragment extends Fragment {
     TextView caregiverForgetPass;
     MaterialButton caregiverLoginBtn;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    private static final String TAG = "CaregiverRegisterTabFrag";
+    private static final String TAG = "CaregiverRegisterFrag";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
