@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.inhomecareapp.MapsActivity;
 import com.example.inhomecareapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +29,7 @@ public class CustomerRegisterTabFragment extends Fragment {
     EditText customerEmailRegisterEt;
     EditText customerPhoneRegisterEt;
     EditText customerAddressRegisterEt;
+    Button   customerMapButton;
     MaterialButton customerRegisterBtn;
     RadioButton radioButtonMale;
     RadioButton radioButtonFemale;
@@ -45,9 +48,20 @@ public class CustomerRegisterTabFragment extends Fragment {
         customerEmailRegisterEt = root.findViewById(R.id.customerEmail_register);
         customerPhoneRegisterEt = root.findViewById(R.id.customerPhone_register);
         customerAddressRegisterEt = root.findViewById(R.id.customerAddress_register);
+        customerMapButton=root.findViewById(R.id.customer_map_button);
+        customerMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(requireContext(), MapsActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
         radioButtonMale = root.findViewById(R.id.radio_button_1);
         radioButtonFemale = root.findViewById(R.id.radio_button_2);
         customerRegisterBtn = root.findViewById(R.id.customerRegister_btn);
+
 
         customerRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,10 +120,10 @@ public class CustomerRegisterTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(requireContext(), "User data is uploaded", Toast.LENGTH_SHORT).show();
-                            Log.i(TAG, "onComplete: User data uploaded");
                             Intent intent=new Intent(requireContext(), CustomerHome.class);
                             startActivity(intent);
+                            Toast.makeText(requireContext(), "User data is uploaded", Toast.LENGTH_SHORT).show();
+                            Log.i(TAG, "onComplete: User data uploaded");
                         } else {
                             String errorMessage = task.getException().getLocalizedMessage();
                             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();

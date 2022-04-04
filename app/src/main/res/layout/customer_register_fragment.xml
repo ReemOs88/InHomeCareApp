@@ -87,13 +87,14 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:hint="Address"/>
-        <ImageView
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_30sdp"
+        <Button
+            android:id="@+id/customer_map_button"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:src="@drawable/ic_baseline_add_location_24"/>
+            android:background="@drawable/ic_baseline_add_location_24"/>
 
 
     </LinearLayout>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import com.example.inhomecareapp.caregiver.CaregiverLoginActivity;
 import com.example.inhomecareapp.customer.CustomerLoginActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
       Button customerBtn,caregiverBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         caregiverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i(TAG, "onClick: care"); // ?
                 Intent intent=new Intent(MainActivity.this, CaregiverLoginActivity.class);
                 startActivity(intent);
-                Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
             }
         });
 
