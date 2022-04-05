@@ -11,4 +11,16 @@
     <string name="customer_forget_password">Forget password</string>
     <string name="caregiver_id">Id</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="content_description_more">content_description_more</string>
+    <string name="more">more</string>
+    <string name="care_giver_profile">care_giver_profile</string>
+    <string name="care_giver_logout">care_giver_logout</string>
+    <string name="back">back</string>
+    <string name="content_description_back">content_description_back</string>
+    <string name="home">home</string>
+    <string name="content_description_home">content_description_home</string>
+    <string name="profile">profile</string>
+    <string name="content_description_profile">content_description_profile</string>
+    <string name="logout">logout</string>
+    <string name="content_description_logout">content_description_logout</string>
 </resources>

@@ -53,9 +53,14 @@ public class CustomerLoginTabFragment extends Fragment {
                                  @Override
                                  public void onComplete(@NonNull Task<AuthResult> task) {
                                      if(task.isSuccessful()){
-                                         Intent intent=new Intent(requireContext(), CustomerHome.class);
-                                         startActivity(intent);
-                                         getActivity().finish();
+                                         if (task.getResult().getUser().isEmailVerified()){
+                                             Intent intent=new Intent(requireContext(), CustomerHome.class);
+                                             startActivity(intent);
+                                             getActivity().finish();
+                                         }
+                                         else {
+                                             Toast.makeText(requireContext(), "Please verify your email!", Toast.LENGTH_SHORT).show();
+                                         }
                                      }else {
                                          String errorMessage=task.getException().getLocalizedMessage();
                                          Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();

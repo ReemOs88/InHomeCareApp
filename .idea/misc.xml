@@ -13,10 +13,20 @@
         <entry key="..\:/Users/nadae/AndroidStudioProjects/InHomeCareApp/app/src/main/res/layout/caregiver_register_fragment.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/nadae/AndroidStudioProjects/InHomeCareApp/app/src/main/res/layout/customer_login_fragment.xml" value="0.176" />
         <entry key="..\:/Users/nadae/AndroidStudioProjects/InHomeCareApp/app/src/main/res/layout/customer_register_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/drawable/button_shape.xml" value="0.176" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.2075" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/activity_caregiver_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/activity_caregiver_profile.xml" value="0.25" />
         <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/activity_caregiver_register_tab_fragment.xml" value="0.12681159420289856" />
         <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/activity_main.xml" value="0.13043478260869565" />
         <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/activity_maps.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/caregiver_login_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/caregiver_register_fragment.xml" value="0.13858695652173914" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/customer_posts.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/layout/customer_register_fragment.xml" value="0.33" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/menu/bottom_app_par.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/reemo/AndroidStudioProjects/InHomeCareApp2/app/src/main/res/menu/top_app_par.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

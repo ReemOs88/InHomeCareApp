@@ -78,35 +78,24 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:hint="@string/customer_phone_number"/>
-        <LinearLayout
-            android:id="@+id/linear1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-            <EditText
-                android:layout_weight="1"
+
+        <EditText
+
                 android:id="@+id/caregiverAddress_register"
-                android:layout_width="@dimen/_320sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_shape"
-                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
 
-                android:layout_marginTop="@dimen/_20sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:textColorHint="@color/blue"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:hint="Address"/>
-            <ImageView
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:layout_marginRight="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:src="@drawable/ic_baseline_add_location_24"/>
-        </LinearLayout>
+
+
         <LinearLayout
             android:id="@+id/linear2"
             android:layout_width="match_parent"

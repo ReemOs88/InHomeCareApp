@@ -17,9 +17,19 @@ import com.example.inhomecareapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
 
 public class CaregiverRegisterTabFragment extends Fragment {
     EditText caregiverNameRegisterEt;
@@ -84,6 +94,7 @@ public class CaregiverRegisterTabFragment extends Fragment {
                         if (task.isSuccessful()) {
                             Toast.makeText(requireContext(), "Account is created", Toast.LENGTH_SHORT).show();
                             uploadUCaregiverData();
+                            sendVerificationEmail();
                         } else {
                             String errorMessage = task.getException().getLocalizedMessage();
                             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
@@ -93,6 +104,7 @@ public class CaregiverRegisterTabFragment extends Fragment {
                     }
                 });
     }
+
 
     private void uploadUCaregiverData() {
         CaregiverData caregiverData = new CaregiverData(caregiverNameRegister, caregiverEmailRegister,
@@ -121,4 +133,23 @@ public class CaregiverRegisterTabFragment extends Fragment {
 
     }
 
+    private void sendVerificationEmail()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        user.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // email sent
+
+
+                            // after email is sent just logout the user and finish this activity
+                            FirebaseAuth.getInstance().signOut();
+
+                        }
+                    }
+                });
+    }
 }

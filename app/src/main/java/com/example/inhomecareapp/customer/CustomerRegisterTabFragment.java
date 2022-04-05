@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CustomerRegisterTabFragment extends Fragment {
@@ -98,6 +99,7 @@ public class CustomerRegisterTabFragment extends Fragment {
                         if (task.isSuccessful()) {
                             Toast.makeText(requireContext(), "Account is created", Toast.LENGTH_SHORT).show();
                             uploadUCustomerData();
+                            sendVerificationEmail();
                         } else {
                             String errorMessage = task.getException().getLocalizedMessage();
                             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
@@ -120,8 +122,8 @@ public class CustomerRegisterTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Intent intent=new Intent(requireContext(), CustomerHome.class);
-                            startActivity(intent);
+//                            Intent intent=new Intent(requireContext(), CustomerHome.class);
+//                            startActivity(intent);
                             Toast.makeText(requireContext(), "User data is uploaded", Toast.LENGTH_SHORT).show();
                             Log.i(TAG, "onComplete: User data uploaded");
                         } else {
@@ -133,6 +135,26 @@ public class CustomerRegisterTabFragment extends Fragment {
                 });
 
 
+    }
+
+    private void sendVerificationEmail()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        user.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // email sent
+
+
+                            // after email is sent just logout the user and finish this activity
+                            FirebaseAuth.getInstance().signOut();
+
+                        }
+                    }
+                });
     }
 
 }
