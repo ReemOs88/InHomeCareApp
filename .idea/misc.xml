@@ -3,6 +3,47 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/btn.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_add2_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_add_location_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_home2_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_menu2_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_more_horiz_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2005" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_add.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_basic.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_customer_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_hourlycaregiver.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_hourlycontract.xml" value="0.264" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_map.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_myaddreses.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_post.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_posts.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_profile.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_stayicaregive.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/activity_stayincontact.xml" value="0.264" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/calender.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/customer_posts.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/fragment_home.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/fragment_menu.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/item.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/item_addres.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/item_caregiver.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/item_caregivert.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/map.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/servicdration.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/layout/servicestay.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/menu/bottom_app_par.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/harbi/OneDrive/Desktop/InHomeCareApp/app/src/main/res/menu/top_app_par.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nadae/AndroidStudioProjects/InHomeCareApp/app/src/main/res/layout/activity_caregiver_home.xml" value="0.25" />
         <entry key="..\:/Users/nadae/AndroidStudioProjects/InHomeCareApp/app/src/main/res/layout/activity_caregiver_login.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/nadae/AndroidStudioProjects/InHomeCareApp/app/src/main/res/layout/activity_caregiver_login_tab_fragment.xml" value="0.25" />

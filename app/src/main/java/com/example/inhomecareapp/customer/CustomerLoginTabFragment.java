@@ -54,7 +54,7 @@ public class CustomerLoginTabFragment extends Fragment {
                                  public void onComplete(@NonNull Task<AuthResult> task) {
                                      if(task.isSuccessful()){
                                          if (task.getResult().getUser().isEmailVerified()){
-                                             Intent intent=new Intent(requireContext(), CustomerHome.class);
+                                             Intent intent=new Intent(requireContext(), home.class);
                                              startActivity(intent);
                                              getActivity().finish();
                                          }

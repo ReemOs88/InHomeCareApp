@@ -3,6 +3,9 @@
     package="com.example.inhomecareapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -17,6 +20,40 @@
         <activity
             android:name=".caregiver.CaregiverProfileActivity"
             android:exported="false" />
+        <activity
+        android:name=".customer.stayincontact"
+        android:exported="false" />
+        <activity
+            android:name=".customer.hourlycontract"
+            android:exported="false" />
+        <activity
+            android:name=".customer.stayicaregive"
+            android:exported="false" />
+        <activity
+            android:name=".customer.hourlycaregiver"
+            android:exported="false" />
+        <activity
+            android:name=".customer.posts"
+            android:exported="false" />
+        <activity
+            android:name=".customer.add"
+            android:exported="false" />
+        <activity
+            android:name=".customer.map"
+            android:exported="false" />
+        <activity
+            android:name=".customer.Myaddreses"
+            android:exported="false" />
+        <activity
+            android:name=".customer.profile"
+            android:exported="false" />
+        <activity
+            android:name=".customer.post"
+            android:exported="false" />
+        <activity
+            android:name=".customer.basicActivity"
+            android:exported="false"/>
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -43,14 +80,12 @@
             android:name=".caregiver.CaregiverLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".customer.CustomerHome"
-            android:exported="false" />
-        <activity
             android:name=".customer.CustomerLoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -3,7 +3,7 @@ package com.example.inhomecareapp.caregiver;
 public class CaregiverData {
     private String caregiverNameRegister,caregiverEmailRegister,caregiverPhoneRegister,caregiverAddressRegister;
 
-    public CaregiverData() {
+    public CaregiverData(String name, String phon, String address) {
     }
 
     public CaregiverData(String caregiverNameRegister, String caregiverEmailRegister, String caregiverPhoneRegister, String caregiverAddressRegister ) {
