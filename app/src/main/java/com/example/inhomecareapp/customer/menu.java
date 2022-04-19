@@ -71,8 +71,9 @@ public class menu extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /** Intent i = new Intent(getActivity(), com.example.inhomecareapp.customer.login.class);
-                 startActivity(i);*/
+                Intent i = new Intent(getActivity(),CustomerLoginActivity.class);
+                startActivity(i);
+                getActivity().finish();
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {

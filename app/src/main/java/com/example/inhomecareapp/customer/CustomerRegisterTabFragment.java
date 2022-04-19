@@ -22,6 +22,8 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CustomerRegisterTabFragment extends Fragment {
@@ -34,6 +36,7 @@ public class CustomerRegisterTabFragment extends Fragment {
     MaterialButton customerRegisterBtn;
     RadioButton radioButtonMale;
     RadioButton radioButtonFemale;
+    DatabaseReference databaseReference;
     private static final String TAG = "CustomerRegisterTabFrag";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -50,6 +53,7 @@ public class CustomerRegisterTabFragment extends Fragment {
         customerPhoneRegisterEt = root.findViewById(R.id.customerPhone_register);
         customerAddressRegisterEt = root.findViewById(R.id.customerAddress_register);
         customerMapButton=root.findViewById(R.id.customer_map_button);
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("customer").push();
         customerMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

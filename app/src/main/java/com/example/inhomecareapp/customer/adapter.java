@@ -16,10 +16,11 @@ import java.util.List;
 public class adapter extends RecyclerView.Adapter<adapter.MyViewHolder> {
 
     private LayoutInflater inflater;
-    List<data> mdata;
+    List<addresss> mdata;
 
 
-    public adapter(Context context, List<data> mdata) {
+
+    public adapter(Context context, List<addresss> mdata) {
         this.inflater = LayoutInflater.from(context);
         this.mdata = mdata;
     }
@@ -34,7 +35,7 @@ public class adapter extends RecyclerView.Adapter<adapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull adapter.MyViewHolder holder, int position) {
-        holder.text.setText(mdata.get(position).getText() );
+        holder.text.setText(mdata.get(position).getLocat() );
 
 
 

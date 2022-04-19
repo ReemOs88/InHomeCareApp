@@ -20,6 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/filledTextFitield">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/floo_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -40,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/filledTextFiuioeld">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phon_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -60,6 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/filledTextFietld">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/building_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -80,6 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/street_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"

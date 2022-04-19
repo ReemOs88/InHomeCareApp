@@ -31,6 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameeee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white" />
@@ -50,6 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/filledTextField">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -70,6 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/filledTextFiield">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Idd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -90,6 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/filledTextFiioeld">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"

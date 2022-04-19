@@ -40,15 +40,15 @@ public class stayicaregive extends AppCompatActivity {
         contract_data model = (contract_data) getIntent().getSerializableExtra("obj");
 
         database = FirebaseDatabase.getInstance();
-        ref1= database.getInstance().getReference("stayin caregivers");
+        ref= FirebaseDatabase.getInstance().getReference().child("stayin caregivers");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot userSnapshot: snapshot.getChildren()) {
 
-                    String name = userSnapshot.child("name").getValue().toString();
-                    String phon = userSnapshot.child("phon").getValue().toString();
-                    String Address = userSnapshot.child("Address").getValue().toString();
+                    String name = userSnapshot.child("name").getValue(String.class);
+                    String phon = userSnapshot.child("gender").getValue().toString();
+                    String Address = userSnapshot.child("cate").getValue().toString();
 
                     CaregiverData l=userSnapshot.getValue(CaregiverData.class);
                     l=new CaregiverData(name,phon,Address);
@@ -64,6 +64,12 @@ public class stayicaregive extends AppCompatActivity {
             }
 
         });
+
+
+
+
+
+
 
     }
 
