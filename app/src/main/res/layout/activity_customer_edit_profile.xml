@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".customer.CustomerEditProfileActivity">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/customer_edit_name_et"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:hintTextColor="@color/blue"
+        app:boxStrokeColor="@color/blue"
+        android:hint="Edit name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/customer_edit_phone_et"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:hintTextColor="@color/blue"
+        app:boxStrokeColor="@color/blue"
+        android:hint="Edit phone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contract_address_et"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        app:hintTextColor="@color/blue"
+        app:boxStrokeColor="@color/blue"
+        android:hint="Edit address"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconDrawable="@drawable/ic_baseline_location_on_24"
+        app:startIconTint="@color/blue">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="@dimen/_150sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="@color/babyBlue"
+        android:text="Update"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_height="wrap_content"/>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+
+            app:menu="@menu/bottom_app_par_customer"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_post_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_add_24"
+            app:layout_anchor="@id/bottomAppBar"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

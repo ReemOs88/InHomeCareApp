@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.inhomecareapp.ForgetPasswordActivity;
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.caregiver.CaregiverHome;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,6 +37,14 @@ public class CaregiverLoginTabFragment extends Fragment {
         caregiverPassET = root.findViewById(R.id.caregiverPass_login);
         caregiverForgetPass = root.findViewById(R.id.forget_pass_tv);
         caregiverLoginBtn = root.findViewById(R.id.caregiver_loin_btn);
+
+        caregiverForgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(requireContext(), ForgetPasswordActivity.class));
+            }
+        });
+
         caregiverLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,9 +63,14 @@ public class CaregiverLoginTabFragment extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Intent intent=new Intent(requireContext(), CaregiverHome.class);
-                                    startActivity(intent);
-                                    getActivity().finish();
+                                   if (task.getResult().getUser().isEmailVerified()){
+                                       Intent intent=new Intent(requireContext(), CaregiverHome.class);
+                                       startActivity(intent);
+                                       getActivity().finish();
+                                   }
+                                   else{
+                                       Toast.makeText(requireContext(), "Please verify your email!", Toast.LENGTH_SHORT).show();
+                                   }
                                 }else {
                                     String errorMessage=task.getException().getLocalizedMessage();
                                     Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();

@@ -9,6 +9,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/caregiver_profile_Pic_register"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/profile"
+            android:layout_height="@dimen/_80sdp"/>
         <EditText
             android:id="@+id/caregiverName_register"
             android:layout_width="match_parent"
@@ -78,22 +85,69 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:hint="@string/customer_phone_number"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/menu_type_of_service"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:boxStrokeColor="@color/blue"
+            android:textColorHint="@color/blue"
+            app:endIconTint="@color/blue"
+            android:layout_height="wrap_content"
+            android:hint="@string/type_of_service">
 
-        <EditText
-
-                android:id="@+id/caregiverAddress_register"
+            <AutoCompleteTextView
+                android:id="@+id/autoComplete_service_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_shape"
-                android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+                android:inputType="none"
+                />
 
-                android:textColorHint="@color/blue"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:hint="Address"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/menu_category_of_service"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/blue"
+            android:textColorHint="@color/blue"
+            app:endIconTint="@color/blue"
+            android:hint="@string/category">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoComplete_select_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/menu_age"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:boxStrokeColor="@color/blue"
+            android:textColorHint="@color/blue"
+            app:endIconTint="@color/blue"
+            android:hint="@string/age">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoComplete_ages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
 
         <LinearLayout
@@ -115,7 +169,7 @@
                     android:id="@+id/radio_button_1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textColor="@color/white"
+                    android:textColor="@color/blue"
                     android:buttonTint="@color/blue"
                     android:text="Male"/>
                 <RadioButton
@@ -123,7 +177,7 @@
                     android:id="@+id/radio_button_2"
                     android:layout_width="match_parent"
                     android:buttonTint="@color/blue"
-                    android:textColor="@color/white"
+                    android:textColor="@color/blue"
                     android:layout_height="match_parent"
                     android:text="Female"/>
             </RadioGroup>

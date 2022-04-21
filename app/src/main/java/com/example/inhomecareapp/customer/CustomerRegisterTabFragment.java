@@ -1,6 +1,8 @@
 package com.example.inhomecareapp.customer;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,14 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.inhomecareapp.MapsActivity;
 import com.example.inhomecareapp.R;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -25,6 +30,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CustomerRegisterTabFragment extends Fragment {
+    ImageView caregiverProfilePicRegister;
     EditText customerNameRegisterEt;
     EditText customerPassRegisterEt;
     EditText customerEmailRegisterEt;
@@ -43,7 +49,17 @@ public class CustomerRegisterTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.customer_register_fragment, container, false);
-
+        caregiverProfilePicRegister=root.findViewById(R.id.caregiver_profile_Pic_register);
+        caregiverProfilePicRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImagePicker.with(requireActivity())
+                        .crop()	    			//Crop image(Optional), Check Customization for more option
+                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
+                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                        .start();
+            }
+        });
         customerNameRegisterEt = root.findViewById(R.id.customerName_register);
         customerPassRegisterEt = root.findViewById(R.id.customerPass_register);
         customerEmailRegisterEt = root.findViewById(R.id.customerEmail_register);
@@ -91,6 +107,23 @@ public class CustomerRegisterTabFragment extends Fragment {
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+            if (resultCode == Activity.RESULT_OK) {
+                //Image Uri will not be null for RESULT_OK
+                Uri uri = data.getData();
+
+                        // Use Uri object instead of File to avoid storage permissions
+                caregiverProfilePicRegister.setImageURI(uri);
+            } else if (resultCode == ImagePicker.RESULT_ERROR) {
+                Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
     private void createCustomerByEmail(String customerEmailRegister, String customerPassRegister) {
         firebaseAuth.createUserWithEmailAndPassword(customerEmailRegister, customerPassRegister)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -122,8 +155,8 @@ public class CustomerRegisterTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-//                            Intent intent=new Intent(requireContext(), CustomerHome.class);
-//                            startActivity(intent);
+                           Intent intent=new Intent(requireContext(), CustomerHome.class);
+                            startActivity(intent);
                             Toast.makeText(requireContext(), "User data is uploaded", Toast.LENGTH_SHORT).show();
                             Log.i(TAG, "onComplete: User data uploaded");
                         } else {

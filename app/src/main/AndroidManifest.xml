@@ -5,9 +5,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,45 +16,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InHomeCareApp">
         <activity
-            android:name=".caregiver.CaregiverForgetPasswordActivity"
+            android:name=".caregiver.CaregiverEditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerEditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerContractActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CaregiverListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerHome"
+            android:exported="false" />
+        <activity
+            android:name=".ForgetPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".caregiver.CaregiverProfileActivity"
             android:exported="false" />
-        <activity
-        android:name=".customer.stayincontact"
-        android:exported="false" />
-        <activity
-            android:name=".customer.hourlycontract"
-            android:exported="false" />
-        <activity
-            android:name=".customer.stayicaregive"
-            android:exported="false" />
-        <activity
-            android:name=".customer.hourlycaregiver"
-            android:exported="false" />
-        <activity
-            android:name=".customer.posts"
-            android:exported="false" />
-        <activity
-            android:name=".customer.add"
-            android:exported="false" />
-        <activity
-            android:name=".customer.map"
-            android:exported="false" />
-        <activity
-            android:name=".customer.Myaddreses"
-            android:exported="false" />
-        <activity
-            android:name=".customer.profile"
-            android:exported="false" />
-        <activity
-            android:name=".customer.post"
-            android:exported="false" />
-        <activity
-            android:name=".customer.basicActivity"
-            android:exported="false"/>
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -85,13 +70,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

@@ -3,35 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".caregiver.CaregiverHome">
-
+    android:layout_height="match_parent"
+    tools:context=".customer.CaregiverListActivity">
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
             android:id="@+id/recycler_view"
-            tools:listitem="@layout/customer_posts"
+            tools:listitem="@layout/caregivers"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-            app:menu="@menu/bottom_app_par_caregiver"
+
+            app:menu="@menu/bottom_app_par_customer"
             />
 
-
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_post_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_add_24"
+            app:layout_anchor="@id/bottomAppBar"
+            />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
 </LinearLayout>

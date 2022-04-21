@@ -37,15 +37,14 @@ public class CaregiverRegisterTabFragment extends Fragment {
     EditText caregiverIdEt;
     EditText caregiverEmailRegisterEt;
     EditText caregiverPhoneRegisterEt;
-    EditText caregiverAddressRegisterEt;
     MaterialButton caregiverRegisterBtn;
     RadioButton radioButton1;
     RadioButton radioButton2;
     private static final String TAG = "CaregiverRegisterFrag";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    private String caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister,
-            caregiverAddressRegister;
+    private String caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister;
+
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.caregiver_register_fragment,container,false);
@@ -54,7 +53,6 @@ public class CaregiverRegisterTabFragment extends Fragment {
         caregiverIdEt=root.findViewById(R.id.caregiverID_register);
         caregiverEmailRegisterEt=root.findViewById(R.id.caregiverEmail_register);
         caregiverPhoneRegisterEt=root.findViewById(R.id.caregiverPhone_register);
-        caregiverAddressRegisterEt=root.findViewById(R.id.caregiverAddress_register);
         radioButton1 = root.findViewById(R.id.radio_button_1);
         radioButton2 = root.findViewById(R.id.radio_button_2);
         caregiverRegisterBtn = root.findViewById(R.id.caregiverRegister_btn);
@@ -65,10 +63,10 @@ public class CaregiverRegisterTabFragment extends Fragment {
                 caregiverEmailRegister = caregiverEmailRegisterEt.getText().toString().trim();
                 String caregiverPassRegister = caregiverPassRegisterEt.getText().toString().trim();
                 caregiverPhoneRegister = caregiverPhoneRegisterEt.getText().toString().trim();
-                caregiverAddressRegister = caregiverAddressRegisterEt.getText().toString().trim();
+
 
                 if (caregiverNameRegister.isEmpty() || caregiverEmailRegister.isEmpty() || caregiverPassRegister.isEmpty() ||
-                        caregiverPhoneRegister.isEmpty() || caregiverAddressRegister.isEmpty()) {
+                        caregiverPhoneRegister.isEmpty() ) {
                     Toast.makeText(requireContext(), "please fill all data", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -108,7 +106,7 @@ public class CaregiverRegisterTabFragment extends Fragment {
 
     private void uploadUCaregiverData() {
         CaregiverData caregiverData = new CaregiverData(caregiverNameRegister, caregiverEmailRegister,
-                caregiverPhoneRegister, caregiverAddressRegister);
+                caregiverPhoneRegister);
 
         firebaseFirestore
                 .collection("inHomeCaregivers")

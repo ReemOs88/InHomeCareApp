@@ -35,6 +35,21 @@ public class CaregiverHome extends AppCompatActivity {
                 }
                 return false;
             }
+
+
+        });
+
+        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int id=item.getItemId();
+                if(id== R.id.home){
+                    Intent intent = new Intent(CaregiverHome.this, CaregiverHome.class);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
         });
     }
 

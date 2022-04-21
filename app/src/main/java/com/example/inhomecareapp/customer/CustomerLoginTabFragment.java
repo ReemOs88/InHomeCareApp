@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.inhomecareapp.ForgetPasswordActivity;
 import com.example.inhomecareapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,8 +34,16 @@ public class CustomerLoginTabFragment extends Fragment {
 
         customerEmailEt= root.findViewById(R.id.customerEmail_login);
         customerPassEt=root.findViewById(R.id.customerPass_login);
-        customerForgetPass=root.findViewById(R.id.customerPass_login);
+        customerForgetPass=root.findViewById(R.id.forget_pass_tv);
         customerLoginBtn=root.findViewById(R.id.customer_loin_btn);
+
+        customerForgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(requireContext(), ForgetPasswordActivity.class));
+            }
+        });
+
         customerLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +63,7 @@ public class CustomerLoginTabFragment extends Fragment {
                                  public void onComplete(@NonNull Task<AuthResult> task) {
                                      if(task.isSuccessful()){
                                          if (task.getResult().getUser().isEmailVerified()){
-                                             Intent intent=new Intent(requireContext(), home.class);
+                                             Intent intent=new Intent(requireContext(), CustomerHome.class);
                                              startActivity(intent);
                                              getActivity().finish();
                                          }

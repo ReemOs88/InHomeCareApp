@@ -23,4 +23,14 @@
     <string name="content_description_profile">content_description_profile</string>
     <string name="logout">logout</string>
     <string name="content_description_logout">content_description_logout</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="type_of_service">Type of service</string>
+    <string name="category">Category</string>
+    <string name="age">Age</string>
+    <string name="message">Message</string>
+    <string name="contract">contract</string>
+    <string name="hourly_service">Hourly service</string>
+    <string name="service_type">Service Type</string>
+    <string name="please_write_your_need_in_detail">Please write your need in detail</string>
+    <string name="please_write_your_needs_in_detail" />
 </resources>

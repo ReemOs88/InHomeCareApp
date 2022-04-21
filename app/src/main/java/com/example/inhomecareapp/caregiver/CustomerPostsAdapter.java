@@ -20,7 +20,8 @@ public class CustomerPostsAdapter extends RecyclerView.Adapter<CustomerPostsAdap
     @NonNull
     @Override
     public CustomerPostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new CustomerPostsViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.customer_posts, parent, false));
+        return new CustomerPostsViewHolder(LayoutInflater.
+                from(parent.getContext()).inflate(R.layout.customer_posts, parent, false));
     }
     @Override
     public void onBindViewHolder(@NonNull CustomerPostsViewHolder holder, int position) {
@@ -40,6 +41,7 @@ public class CustomerPostsAdapter extends RecyclerView.Adapter<CustomerPostsAdap
     }
     @Override
     public int getItemCount() {
+
         return 6;
     }
     class CustomerPostsViewHolder extends RecyclerView.ViewHolder{

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/hourly_service"
+        android:title="@string/hourly_service"
+        />
+    <item android:id="@+id/stay_in_service"
+        android:title="Stay in service"
+        />
+</menu>
