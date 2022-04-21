@@ -23,7 +23,28 @@ public class CustomerLoginActivity extends AppCompatActivity {
         final CustomerLoginAdapter adapter= new CustomerLoginAdapter(getSupportFragmentManager(),
                 this,tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (tab.getPosition() == 0){
+                    viewPager.setCurrentItem(0);
+                }
+                else if (tab.getPosition() == 1){
+                    viewPager.setCurrentItem(1);
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
 
     }

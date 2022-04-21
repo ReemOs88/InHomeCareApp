@@ -53,16 +53,16 @@ public class CustomerRegisterTabFragment extends Fragment {
 
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.customer_register_fragment, container, false);
         caregiverProfilePicRegister=root.findViewById(R.id.caregiver_profile_Pic_register);
-        caregiverProfilePicRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ImagePicker.with(requireActivity())
-                        .crop()	    			//Crop image(Optional), Check Customization for more option
-                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-                        .start();
-            }
-        });
+//        caregiverProfilePicRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ImagePicker.with(requireActivity())
+//                        .crop()	    			//Crop image(Optional), Check Customization for more option
+//                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
+//                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+//                        .start();
+//            }
+//        });
         customerNameRegisterEt = root.findViewById(R.id.customerName_register);
         customerPassRegisterEt = root.findViewById(R.id.customerPass_register);
         customerEmailRegisterEt = root.findViewById(R.id.customerEmail_register);
@@ -111,21 +111,21 @@ public class CustomerRegisterTabFragment extends Fragment {
 
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-            if (resultCode == Activity.RESULT_OK) {
-                //Image Uri will not be null for RESULT_OK
-                Uri uri = data.getData();
-
-                        // Use Uri object instead of File to avoid storage permissions
-                caregiverProfilePicRegister.setImageURI(uri);
-            } else if (resultCode == ImagePicker.RESULT_ERROR) {
-                Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show();
-            }
-        }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//            if (resultCode == Activity.RESULT_OK) {
+//                //Image Uri will not be null for RESULT_OK
+//                Uri uri = data.getData();
+//
+//                        // Use Uri object instead of File to avoid storage permissions
+//                caregiverProfilePicRegister.setImageURI(uri);
+//            } else if (resultCode == ImagePicker.RESULT_ERROR) {
+//                Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
+//            } else {
+//                Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show();
+//            }
+//        }
 
 
     private void createCustomerByEmail(String customerEmailRegister, String customerPassRegister) {
