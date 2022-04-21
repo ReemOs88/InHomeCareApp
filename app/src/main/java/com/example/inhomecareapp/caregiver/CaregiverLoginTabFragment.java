@@ -16,11 +16,13 @@ import androidx.fragment.app.Fragment;
 import com.example.inhomecareapp.ForgetPasswordActivity;
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.caregiver.CaregiverHome;
+import com.example.inhomecareapp.customer.CustomerHome;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CaregiverLoginTabFragment extends Fragment {
     EditText caregiverEmailET;
@@ -64,9 +66,19 @@ public class CaregiverLoginTabFragment extends Fragment {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
                                    if (task.getResult().getUser().isEmailVerified()){
-                                       Intent intent=new Intent(requireContext(), CaregiverHome.class);
-                                       startActivity(intent);
-                                       getActivity().finish();
+                                       FirebaseFirestore.getInstance().collection("inHomeCaregivers")
+                                               .document(task.getResult().getUser().getUid()).get()
+                                               .addOnSuccessListener(documentSnapshot -> {
+                                                   if (documentSnapshot.exists()) {
+                                                       Intent intent=new Intent(requireContext(), CaregiverHome.class);
+                                                       startActivity(intent);
+                                                       getActivity().finish();
+                                                   }
+                                                   else {
+                                                       Toast.makeText(requireContext(), "Not caregiver", Toast.LENGTH_SHORT).show();
+                                                   }
+                                               });
+
                                    }
                                    else{
                                        Toast.makeText(requireContext(), "Please verify your email!", Toast.LENGTH_SHORT).show();
