@@ -23,7 +23,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
         final CustomerLoginAdapter adapter= new CustomerLoginAdapter(getSupportFragmentManager(),
                 this,tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
-//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

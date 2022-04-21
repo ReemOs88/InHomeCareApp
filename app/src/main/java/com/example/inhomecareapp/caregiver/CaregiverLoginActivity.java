@@ -45,7 +45,7 @@ public class CaregiverLoginActivity extends AppCompatActivity {
 
             }
         });
-//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
 
     }
