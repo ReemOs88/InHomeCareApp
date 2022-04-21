@@ -6,8 +6,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,8 +30,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 
@@ -130,6 +137,23 @@ public class CaregiverRegisterTabFragment extends Fragment {
 
 
     }
+    private ArrayList<String> getCustomerList() {
+        ArrayList<String> customers = new ArrayList<>();
+        customers.add("Hourly Services");
+        customers.add("Stay-in services");
+
+        return customers;
+    }
+    private ArrayList<String> getCcategoryList() {
+        ArrayList<String> customers = new ArrayList<>();
+        customers.add("Elderly");
+        customers.add("People with special needs");
+        customers.add("Children");
+
+        return customers;
+    }
+
+
 
     private void sendVerificationEmail()
     {
