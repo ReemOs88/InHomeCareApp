@@ -40,8 +40,8 @@ public class CustomerRegisterTabFragment extends Fragment {
     EditText customerAddressRegisterEt;
     Button   customerMapButton;
     MaterialButton customerRegisterBtn;
-    RadioButton radioButtonMale;
-    RadioButton radioButtonFemale;
+    RadioButton radioCustomerButtonMale;
+    RadioButton radioCustomerButtonFemale;
     DatabaseReference databaseReference;
     private static final String TAG = "CustomerRegisterTabFrag";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -79,14 +79,22 @@ public class CustomerRegisterTabFragment extends Fragment {
 
             }
         });
-        radioButtonMale = root.findViewById(R.id.radio_button_1);
-        radioButtonFemale = root.findViewById(R.id.radio_button_2);
+        radioCustomerButtonMale = root.findViewById(R.id.radio_button_1);
+        radioCustomerButtonFemale = root.findViewById(R.id.radio_button_2);
         customerRegisterBtn = root.findViewById(R.id.customerRegister_btn);
 
 
         customerRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String gender="";
+                if(radioCustomerButtonMale.isChecked()){
+                    gender="male";
+                } else if (radioCustomerButtonFemale.isChecked()){
+                    gender="female";
+                }
+
                 customerNameRegister = customerNameRegisterEt.getText().toString().trim();
                 customerEmailRegister = customerEmailRegisterEt.getText().toString().trim();
                 String customerPassRegister = customerPassRegisterEt.getText().toString().trim();
@@ -94,7 +102,7 @@ public class CustomerRegisterTabFragment extends Fragment {
                 customerAddressRegister = customerAddressRegisterEt.getText().toString().trim();
 
                 if (customerNameRegister.isEmpty() || customerEmailRegister.isEmpty() || customerPassRegister.isEmpty() ||
-                        customerPhoneRegister.isEmpty() || customerAddressRegister.isEmpty()) {
+                        customerPhoneRegister.isEmpty() || customerAddressRegister.isEmpty()||gender.isEmpty()) {
                     Toast.makeText(requireContext(), "please fill all data", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -110,22 +118,6 @@ public class CustomerRegisterTabFragment extends Fragment {
         return root;
 
     }
-
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//            if (resultCode == Activity.RESULT_OK) {
-//                //Image Uri will not be null for RESULT_OK
-//                Uri uri = data.getData();
-//
-//                        // Use Uri object instead of File to avoid storage permissions
-//                caregiverProfilePicRegister.setImageURI(uri);
-//            } else if (resultCode == ImagePicker.RESULT_ERROR) {
-//                Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show();
-//            }
-//        }
 
 
     private void createCustomerByEmail(String customerEmailRegister, String customerPassRegister) {

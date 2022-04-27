@@ -23,7 +23,7 @@
           android:weightSum="3"
           android:layout_height="wrap_content">
          <com.google.android.material.textfield.TextInputLayout
-             android:id="@+id/contract_address_et"
+
              android:layout_weight="1"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
 
          </com.google.android.material.textfield.TextInputLayout>
          <com.google.android.material.textfield.TextInputLayout
-             android:id="@+id/select_date_et"
+
              android:layout_weight="1"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
@@ -55,6 +55,7 @@
              app:startIconTint="@color/blue">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/select_date_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />

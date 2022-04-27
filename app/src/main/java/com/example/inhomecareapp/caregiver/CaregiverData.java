@@ -1,17 +1,63 @@
 package com.example.inhomecareapp.caregiver;
 
 public class CaregiverData {
-    private String caregiverNameRegister,caregiverEmailRegister,caregiverPhoneRegister,caregiverAddressRegister;
+    private String imageUrl,caregiverNameRegister,caregiverEmailRegister,caregiverPhoneRegister,
+            serviceSelected,selectedCategory,selectedAge,gender;
 
-    public CaregiverData(String name, String phon, String address) {
-    }
-
-    public CaregiverData(String caregiverNameRegister, String caregiverEmailRegister, String caregiverPhoneRegister, String caregiverAddressRegister ) {
+    public CaregiverData(String imageUrl,String caregiverNameRegister, String caregiverEmailRegister,
+                         String caregiverPhoneRegister, String serviceSelected, String selectedCategory, String selectedAge,
+                         String gender) {
+        this.imageUrl=imageUrl;
         this.caregiverNameRegister = caregiverNameRegister;
         this.caregiverEmailRegister = caregiverEmailRegister;
         this.caregiverPhoneRegister = caregiverPhoneRegister;
-        this.caregiverAddressRegister = caregiverAddressRegister;
 
+        this.serviceSelected = serviceSelected;
+        this.selectedCategory = selectedCategory;
+        this.selectedAge = selectedAge;
+        this.gender=gender;
+    }
+
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
+    public String getServiceSelected() {
+        return serviceSelected;
+    }
+
+    public void setServiceSelected(String serviceSelected) {
+        this.serviceSelected = serviceSelected;
+    }
+
+    public String getSelectedCategory() {
+        return selectedCategory;
+    }
+
+    public void setSelectedCategory(String selectedCategory) {
+        this.selectedCategory = selectedCategory;
+    }
+
+    public String getSelectedAge() {
+        return selectedAge;
+    }
+
+    public void setSelectedAge(String selectedAge) {
+        this.selectedAge = selectedAge;
     }
 
     public String getCaregiverNameRegister() {
@@ -38,11 +84,18 @@ public class CaregiverData {
         this.caregiverPhoneRegister = caregiverPhoneRegister;
     }
 
-    public String getCaregiverAddressRegister() {
-        return caregiverAddressRegister;
-    }
 
-    public void setCaregiverAddressRegister(String caregiverAddressRegister) {
-        this.caregiverAddressRegister = caregiverAddressRegister;
+    @Override
+    public String toString() {
+        return "CaregiverData{" +
+                "imageUrl='" + imageUrl + '\'' +
+                ", caregiverNameRegister='" + caregiverNameRegister + '\'' +
+                ", caregiverEmailRegister='" + caregiverEmailRegister + '\'' +
+                ", caregiverPhoneRegister='" + caregiverPhoneRegister + '\'' +
+                ", serviceSelected='" + serviceSelected + '\'' +
+                ", selectedCategory='" + selectedCategory + '\'' +
+                ", selectedAge='" + selectedAge + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
     }
 }

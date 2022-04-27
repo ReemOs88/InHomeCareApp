@@ -2,6 +2,7 @@ package com.example.inhomecareapp.caregiver;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.icu.text.Transliterator;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +37,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
@@ -47,55 +51,124 @@ public class CaregiverRegisterTabFragment extends Fragment {
     EditText caregiverIdEt;
     EditText caregiverEmailRegisterEt;
     EditText caregiverPhoneRegisterEt;
-    ImageView imageViewPic;
+    ImageView caregiverProfilePic;
     MaterialButton caregiverRegisterBtn;
-    RadioButton radioButton1;
-    RadioButton radioButton2;
+    RadioGroup radioGroup;
+    RadioButton radioButtonCaregiverMale;
+    RadioButton radioButtonCaregiverFemale;
     private static final String TAG = "CaregiverRegisterFrag";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    StorageReference storageReference=FirebaseStorage.getInstance().getReference();
     private String caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister;
+    Uri imageUri=null;
+    String serviceSelected="";
+    String selectedCategory="";
+    String selectedAge="";
+
+    String[] servicesTypes={"Hourly service","Stay in service"};
+    AutoCompleteTextView autoCompleteServiceType;
+    ArrayAdapter<String> adapterServiceTypeItems;
+
+    String[] categories={"Children","Elderly","People with special needs"};
+    AutoCompleteTextView autocompleteCategories;
+    ArrayAdapter<String> adapterCategoriesItems;
+
+    String[] ages={"0 - 3 months","3 months - 4 years" ,"10 - 20 years" ,"20 - 40 years" ,"40 - 80 years" };
+    AutoCompleteTextView autoCompleteTAges;
+    ArrayAdapter<String> adapterAgesItems;
+    String gender="";
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.caregiver_register_fragment, container, false);
-        imageViewPic = root.findViewById(R.id.caregiver_profile_Pic_register);
+        caregiverProfilePic = root.findViewById(R.id.caregiver_profile_Pic_register);
         caregiverNameRegisterEt = root.findViewById(R.id.caregiverName_register);
         caregiverPassRegisterEt = root.findViewById(R.id.caregiverPass_register);
         caregiverIdEt = root.findViewById(R.id.caregiverID_register);
         caregiverEmailRegisterEt = root.findViewById(R.id.caregiverEmail_register);
         caregiverPhoneRegisterEt = root.findViewById(R.id.caregiverPhone_register);
-        radioButton1 = root.findViewById(R.id.radio_button_1);
-        radioButton2 = root.findViewById(R.id.radio_button_2);
-        caregiverRegisterBtn = root.findViewById(R.id.caregiverRegister_btn);
+        caregiverRegisterBtn=root.findViewById(R.id.caregiverRegister_btn);
+        radioGroup=root.findViewById(R.id.radioGroup_caregiver);
+        radioButtonCaregiverMale = root.findViewById(R.id.radio_button_caregiver_male);
+        radioButtonCaregiverFemale = root.findViewById(R.id.radio_button_caregiver_female);
 
-        imageViewPic.setOnClickListener(new View.OnClickListener() {
+        autoCompleteServiceType=root.findViewById(R.id.autoComplete_service_type);
+        adapterServiceTypeItems= new ArrayAdapter<String>(requireContext(),R.layout.list_item_service_type,servicesTypes);
+        autoCompleteServiceType.setAdapter(adapterServiceTypeItems);
+        autoCompleteServiceType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                //adapterServiceTypeItems.getItem(position);
+                  serviceSelected=servicesTypes[position]; }
+        });
+        autocompleteCategories=root.findViewById(R.id.autoComplete_select_category);
+        adapterCategoriesItems =new ArrayAdapter<String>(requireContext(),R.layout.list_item_select_category,categories);
+        autocompleteCategories.setAdapter(adapterCategoriesItems);
+        autocompleteCategories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+               // adapterCategoriesItems.getItem(position);
+                selectedCategory= categories[position]; }
+        });
+        autoCompleteTAges=root.findViewById(R.id.autoComplete_ages);
+        adapterAgesItems= new ArrayAdapter<String>(requireContext(),R.layout.list_item_ages,ages);
+        autoCompleteTAges.setAdapter(adapterAgesItems);
+        autoCompleteTAges.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+               // adapterAgesItems.getItem(position);
+                  selectedAge=ages[position]; }
+        });
+
+
+
+        caregiverProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ImagePicker.with(CaregiverRegisterTabFragment.this)
-                        .crop()                    //Crop image(Optional), Check Customization for more option
-                        .compress(1024)            //Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
+                        .crop()
+                        .compress(1024)
+                        .maxResultSize(1080, 1080)
                         .start();
             }
         });
 
         caregiverRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
+
+
+                if(radioButtonCaregiverMale.isChecked()){
+                       gender="male";
+                } else if (radioButtonCaregiverFemale.isChecked()){
+                       gender="female";
+                }
+
                 caregiverNameRegister = caregiverNameRegisterEt.getText().toString().trim();
                 caregiverEmailRegister = caregiverEmailRegisterEt.getText().toString().trim();
                 String caregiverPassRegister = caregiverPassRegisterEt.getText().toString().trim();
                 caregiverPhoneRegister = caregiverPhoneRegisterEt.getText().toString().trim();
 
-
                 if (caregiverNameRegister.isEmpty() || caregiverEmailRegister.isEmpty() || caregiverPassRegister.isEmpty() ||
-                        caregiverPhoneRegister.isEmpty()) {
+                        caregiverPhoneRegister.isEmpty()|| gender.isEmpty()
+                       ) {
                     Toast.makeText(requireContext(), "please fill all data", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(imageUri==null){
+                    Toast.makeText(requireContext(), "Please select profile picture", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (caregiverPassRegister.length() < 6) {
                     Toast.makeText(requireContext(), "password should be at least 6 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if( serviceSelected.isEmpty()||selectedCategory.isEmpty()||selectedAge.isEmpty()){
+                    Toast.makeText(requireContext(), "please select items", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -114,10 +187,10 @@ public class CaregiverRegisterTabFragment extends Fragment {
         Log.i(TAG, "onActivityResult: ");
         if (resultCode == Activity.RESULT_OK) {
             //Image Uri will not be null for RESULT_OK
-            Uri uri = data.getData();
-            Log.i(TAG, "onActivityResult: " + uri);
+             imageUri = data.getData();
+            Log.i(TAG, "onActivityResult: " + imageUri);
             // Use Uri object instead of File to avoid storage permissions
-            imageViewPic.setImageURI(uri);
+            caregiverProfilePic.setImageURI(imageUri);
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
             Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
         } else {
@@ -131,8 +204,10 @@ public class CaregiverRegisterTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(requireContext(), "Account is created", Toast.LENGTH_SHORT).show();
-                            uploadUCaregiverData();
+                            Toast.makeText(requireContext(), "Please verify your account", Toast.LENGTH_SHORT).show();
+                            String caregiverUID= task.getResult().getUser().getUid();
+                            uploadCaregiverProfilePic(caregiverUID);
+
                             sendVerificationEmail();
                         } else {
                             String errorMessage = task.getException().getLocalizedMessage();
@@ -144,10 +219,49 @@ public class CaregiverRegisterTabFragment extends Fragment {
                 });
     }
 
+    private void uploadCaregiverProfilePic(String caregiverUID) {
+        storageReference.child("caregiverProfilePic").child(caregiverUID).putFile(imageUri)
+                .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(requireContext(), "Image uploaded", Toast.LENGTH_SHORT).show();
+                            getCaregiverProfilePicUrl(caregiverUID);
+                        }else {
+                            String errorMessage = task.getException().getLocalizedMessage();
+                            Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                            Log.i(TAG, "onComplete: " + errorMessage);
+                        }
+                    }
+                });
 
-    private void uploadUCaregiverData() {
-        CaregiverData caregiverData = new CaregiverData(caregiverNameRegister, caregiverEmailRegister,
-                caregiverPhoneRegister);
+
+
+    }
+
+    private void getCaregiverProfilePicUrl(String caregiverUID) {
+        storageReference.child("caregiverProfilePic").child(caregiverUID)
+                .getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if(task.isSuccessful()){
+                    String imageUrl=task.getResult().toString();
+                    Log.i(TAG, "onComplete: "+imageUrl);
+                    uploadUCaregiverData(imageUrl);
+
+                }else {
+                    String errorMessage = task.getException().getLocalizedMessage();
+                    Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                    Log.i(TAG, "onComplete: " + errorMessage);
+                }
+            }
+        });
+    }
+
+
+    private void uploadUCaregiverData(String imageUrl) {
+        CaregiverData caregiverData = new CaregiverData(imageUrl,caregiverNameRegister, caregiverEmailRegister,
+                caregiverPhoneRegister,serviceSelected,selectedCategory,selectedAge,gender);
 
         firebaseFirestore
                 .collection("inHomeCaregivers")
@@ -159,7 +273,9 @@ public class CaregiverRegisterTabFragment extends Fragment {
                         if (task.isSuccessful()) {
                             Toast.makeText(requireContext(), "User data is uploaded", Toast.LENGTH_SHORT).show();
                             Log.i(TAG, "onComplete: User data uploaded");
-                            Intent intent = new Intent(requireContext(), CaregiverHome.class);
+                            FirebaseAuth.getInstance().signOut();
+                            requireActivity().finish();
+                            Intent intent = new Intent(requireContext(), CaregiverLoginActivity.class);
                             startActivity(intent);
                         } else {
                             String errorMessage = task.getException().getLocalizedMessage();
@@ -172,23 +288,22 @@ public class CaregiverRegisterTabFragment extends Fragment {
 
     }
 
-    private ArrayList<String> getCustomerList() {
-        ArrayList<String> customers = new ArrayList<>();
-        customers.add("Hourly Services");
-        customers.add("Stay-in services");
+   // private ArrayList<String> getCustomerList() {
+     //   ArrayList<String> customers = new ArrayList<>();
+       // customers.add("Hourly Services");
+        //customers.add("Stay-in services");
 
-        return customers;
-    }
+        //return customers;
+    //}
 
-    private ArrayList<String> getCcategoryList() {
-        ArrayList<String> customers = new ArrayList<>();
-        customers.add("Elderly");
-        customers.add("People with special needs");
-        customers.add("Children");
+    //private ArrayList<String> getCategoryList() {
+      //  ArrayList<String> customers = new ArrayList<>();
+       // customers.add("Elderly");
+        //customers.add("People with special needs");
+        //customers.add("Children");
 
-        return customers;
-    }
-
+        //return customers;
+    //}
 
     private void sendVerificationEmail() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -198,14 +313,12 @@ public class CaregiverRegisterTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            // email sent
 
-
-                            // after email is sent just logout the user and finish this activity
-                            FirebaseAuth.getInstance().signOut();
 
                         }
                     }
                 });
     }
+
+
 }

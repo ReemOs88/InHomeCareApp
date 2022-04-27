@@ -90,7 +90,7 @@
         <Button
             android:id="@+id/customer_map_button"
             android:layout_width="@dimen/_120sdp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_40sdp"
             android:layout_weight="1"
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
@@ -107,17 +107,17 @@
         <RadioGroup
             android:weightSum="2"
             android:orientation="horizontal"
-            android:id="@+id/radioGroup"
+            android:id="@+id/radioGroup_customer"
             android:layout_marginStart="@dimen/_30sdp"
-            android:checkedButton="@+id/radio_button_1"
+            android:checkedButton="@+id/radio_button_customer_male"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
                 android:layout_weight="1"
-                android:id="@+id/radio_button_1"
+                android:id="@+id/radio_button_customer_female"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/white"
+                android:textColor="@color/blue"
                 android:buttonTint="@color/blue"
                 android:text="Male"/>
             <RadioButton
@@ -125,7 +125,7 @@
                 android:id="@+id/radio_button_2"
                 android:layout_width="match_parent"
                 android:buttonTint="@color/blue"
-                android:textColor="@color/white"
+                android:textColor="@color/blue"
                 android:layout_height="match_parent"
                 android:text="Female"/>
         </RadioGroup>
