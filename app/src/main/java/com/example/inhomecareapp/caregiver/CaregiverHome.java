@@ -9,34 +9,43 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.inhomecareapp.CustomerPost;
 import com.example.inhomecareapp.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CaregiverHome extends AppCompatActivity {
+
+    List<CustomerPost> customerPostList = new ArrayList<>();
+    CustomerPostsAdapter customerPostsAdapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_caregiver_home);
-        FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
-        CustomerPostsAdapter customerPostsAdapter = new CustomerPostsAdapter(this);
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setAdapter(customerPostsAdapter);
+
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        recyclerView = findViewById(R.id.recycler_view);
 
         BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                int id=item.getItemId();
+                int id = item.getItemId();
                 if (id == R.id.profile) {
-                  Intent intent = new Intent(CaregiverHome.this, CaregiverProfileActivity.class);
+                    Intent intent = new Intent(CaregiverHome.this, CaregiverProfileActivity.class);
                     startActivity(intent);
                     return true;
 
-                }
-                else if(id== R.id.logout){
+                } else if (id == R.id.logout) {
                     firebaseAuth.signOut();
                     Toast.makeText(CaregiverHome.this, "Logout successfully", Toast.LENGTH_SHORT).show();
                     finish();
@@ -48,9 +57,24 @@ public class CaregiverHome extends AppCompatActivity {
 
         });
 
+        getPosts();
     }
 
+    private void getPosts() {
+        FirebaseFirestore.getInstance().collection("posts")
+                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot query) {
+                for (QueryDocumentSnapshot snapshot : query) {
+                    CustomerPost customerPost = snapshot.toObject(CustomerPost.class);
+                    customerPostList.add(customerPost);
+                }
 
+                customerPostsAdapter = new CustomerPostsAdapter(customerPostList);
+                recyclerView.setAdapter(customerPostsAdapter);
+            }
+        });
+    }
 
 
 }

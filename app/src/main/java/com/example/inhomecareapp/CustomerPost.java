@@ -7,6 +7,9 @@ public class CustomerPost {
     private String postContent;
     private boolean accept = false;
 
+    public CustomerPost() {
+    }
+
     public CustomerPost(String userId, String postId, String postContent) {
         UserId = userId;
         this.postId = postId;
