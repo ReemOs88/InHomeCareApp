@@ -6,11 +6,14 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Geocoder;
 import android.location.Location;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -26,12 +29,16 @@ import com.example.inhomecareapp.databinding.ActivityMapsBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.io.IOException;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private static final String TAG = "MapsActivity";
+    private LatLng latLng;
+    private String address = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +50,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        binding.btnConfirmAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (address.isEmpty()) {
+                    Toast.makeText(MapsActivity.this, "Select location", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Intent intent = new Intent();
+                intent.putExtra("address", address);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
     }
 
 
@@ -89,37 +111,53 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                Log.i(TAG, "onSuccess: "+location.getLatitude());
-                Log.i(TAG, "onSuccess: "+location.getLongitude());
+                if (location == null) {
+                    Toast.makeText(MapsActivity.this, "Can not access your location", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                Log.i(TAG, "onSuccess: " + location.getLatitude());
+                Log.i(TAG, "onSuccess: " + location.getLongitude());
                 drawMarkerOnMap(location);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(MapsActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                Log.i(TAG,"onFailure:"+e.getLocalizedMessage());
+                Log.i(TAG, "onFailure:" + e.getLocalizedMessage());
             }
         });
 
     }
 
     private void drawMarkerOnMap(Location location) {
-        LatLng latLng= new LatLng(location.getLatitude(),location.getLongitude());
-        MarkerOptions markerOptions= new MarkerOptions();
+        mMap.clear();
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         mMap.addMarker(markerOptions);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
     }
 
 
     @Override
     public void onMapClick(@NonNull LatLng latLng) {
         mMap.clear();
-        MarkerOptions markerOptions= new MarkerOptions();
+        MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title("your location");
         mMap.addMarker(markerOptions);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,17));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
+        this.latLng = latLng;
 
+        Geocoder geocoder = new Geocoder(this);
+        try {
+            String addressLine = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1).get(0).getAddressLine(0);
+            Log.i(TAG, "onMapClick: " + addressLine);
+            address = addressLine;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

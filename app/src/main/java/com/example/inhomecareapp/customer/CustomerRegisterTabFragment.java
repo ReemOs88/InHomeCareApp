@@ -1,5 +1,7 @@
 package com.example.inhomecareapp.customer;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -38,12 +40,12 @@ public class CustomerRegisterTabFragment extends Fragment {
     EditText customerEmailRegisterEt;
     EditText customerPhoneRegisterEt;
     EditText customerAddressRegisterEt;
-    Button   customerMapButton;
+    Button customerMapButton;
     MaterialButton customerRegisterBtn;
     RadioButton radioCustomerButtonMale;
     RadioButton radioCustomerButtonFemale;
     DatabaseReference databaseReference;
-    String gender="";
+    String gender = "";
     private static final String TAG = "CustomerRegisterTabFrag";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -59,13 +61,13 @@ public class CustomerRegisterTabFragment extends Fragment {
         customerEmailRegisterEt = root.findViewById(R.id.customerEmail_register);
         customerPhoneRegisterEt = root.findViewById(R.id.customerPhone_register);
         customerAddressRegisterEt = root.findViewById(R.id.customerAddress_register);
-        customerMapButton=root.findViewById(R.id.customer_map_button);
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("customer").push();
+        customerMapButton = root.findViewById(R.id.customer_map_button);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("customer").push();
         customerMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(requireContext(), MapsActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(requireContext(), MapsActivity.class);
+                startActivityForResult(intent, 1);
             }
         });
         radioCustomerButtonMale = root.findViewById(R.id.radio_button_customer_male);
@@ -77,10 +79,10 @@ public class CustomerRegisterTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if(radioCustomerButtonMale.isChecked()){
-                    gender="male";
-                } else if (radioCustomerButtonFemale.isChecked()){
-                    gender="female";
+                if (radioCustomerButtonMale.isChecked()) {
+                    gender = "male";
+                } else if (radioCustomerButtonFemale.isChecked()) {
+                    gender = "female";
                 }
 
                 customerNameRegister = customerNameRegisterEt.getText().toString().trim();
@@ -89,7 +91,7 @@ public class CustomerRegisterTabFragment extends Fragment {
                 customerPhoneRegister = customerPhoneRegisterEt.getText().toString().trim();
                 customerAddressRegister = customerAddressRegisterEt.getText().toString().trim();
                 if (customerNameRegister.isEmpty() || customerEmailRegister.isEmpty() || customerPassRegister.isEmpty() ||
-                        customerPhoneRegister.isEmpty() || customerAddressRegister.isEmpty()||gender.isEmpty()) {
+                        customerPhoneRegister.isEmpty() || customerAddressRegister.isEmpty() || gender.isEmpty()) {
                     Toast.makeText(requireContext(), "please fill all data", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -139,7 +141,7 @@ public class CustomerRegisterTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                           Intent intent=new Intent(requireContext(), CustomerHome.class);
+                            Intent intent = new Intent(requireContext(), CustomerHome.class);
                             startActivity(intent);
                             Toast.makeText(requireContext(), "User data is uploaded", Toast.LENGTH_SHORT).show();
                             Log.i(TAG, "onComplete: User data uploaded");
@@ -154,8 +156,7 @@ public class CustomerRegisterTabFragment extends Fragment {
 
     }
 
-    private void sendVerificationEmail()
-    {
+    private void sendVerificationEmail() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         user.sendEmailVerification()
@@ -170,6 +171,14 @@ public class CustomerRegisterTabFragment extends Fragment {
                 });
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            String address = data.getStringExtra("address");
+            customerAddressRegisterEt.setText(address);
+        }
+    }
 }
 
 

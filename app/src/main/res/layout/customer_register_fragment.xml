@@ -1,148 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/customerName_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:textColorHint="@color/blue"
-        android:background="@drawable/edit_text_shape"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:hint="@string/customer_name"/>
-
-    <EditText
-        android:id="@+id/customerEmail_register"
-        android:layout_width="match_parent"
-        android:textColorHint="@color/blue"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/edit_text_shape"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:hint="@string/customer_email"/>
-    <EditText
-        android:id="@+id/customerPass_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@drawable/edit_text_shape"
-        android:textColorHint="@color/blue"
-        android:inputType="textPassword"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:hint="@string/customer_password"/>
-    <EditText
-        android:id="@+id/customerPhone_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@drawable/edit_text_shape"
-        android:inputType="number"
-        android:textColorHint="@color/blue"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:hint="@string/customer_phone_number"/>
     <LinearLayout
-        android:id="@+id/linear1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
-        <EditText
-            android:layout_weight="1"
-            android:id="@+id/customerAddress_register"
-            android:layout_width="@dimen/_320sdp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_shape"
-            android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/customerName_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:textColorHint="@color/blue"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/edit_text_shape"
+            android:hint="@string/customer_name"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:hint="Address"/>
-        <Button
-            android:id="@+id/customer_map_button"
-            android:layout_width="@dimen/_120sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_weight="1"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/ic_baseline_add_location_24"/>
+            android:textColorHint="@color/blue" />
 
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-       >
-        <RadioGroup
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:id="@+id/radioGroup_customer"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:checkedButton="@+id/radio_group"
+        <EditText
+            android:id="@+id/customerEmail_register"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioButton
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/edit_text_shape"
+            android:hint="@string/customer_email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="@color/blue" />
+
+        <EditText
+            android:id="@+id/customerPass_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/edit_text_shape"
+            android:hint="@string/customer_password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="@color/blue" />
+
+        <EditText
+            android:id="@+id/customerPhone_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/edit_text_shape"
+            android:hint="@string/customer_phone_number"
+            android:inputType="number"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="@color/blue" />
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/customerAddress_register"
+                android:layout_width="@dimen/_320sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:layout_weight="1"
-                android:id="@+id/radio_button_customer_male"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/blue"
-                android:buttonTint="@color/blue"
-                android:text="Male"/>
-            <RadioButton
+                android:background="@drawable/edit_text_shape"
+                android:hint="Address"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColorHint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <Button
+                android:id="@+id/customer_map_button"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:layout_weight="1"
-                android:id="@+id/radio_button_customer_female"
+                android:background="@drawable/ic_baseline_add_location_24" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/radioGroup_customer"
                 android:layout_width="match_parent"
-                android:buttonTint="@color/blue"
-                android:textColor="@color/blue"
-                android:layout_height="match_parent"
-                android:text="Female"/>
-        </RadioGroup>
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:checkedButton="@+id/radio_group"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RadioButton
+                    android:id="@+id/radio_button_customer_male"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/blue"
+                    android:text="Male"
+                    android:textColor="@color/blue" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_customer_female"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/blue"
+                    android:text="Female"
+                    android:textColor="@color/blue" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/customerRegister_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:backgroundTint="@color/blue"
+            android:text="@string/customer_register"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/_30sdp" />
 
     </LinearLayout>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/customerRegister_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-        android:layout_margin="@dimen/_20sdp"
-        android:backgroundTint="@color/blue"
-        app:cornerRadius="@dimen/_30sdp"
-        android:textStyle="bold"
-        android:text="@string/customer_register"
-        android:textAllCaps="false"
-       />
-
-</LinearLayout>
 </ScrollView>
