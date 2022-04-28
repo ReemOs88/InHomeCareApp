@@ -1,5 +1,6 @@
 package com.example.inhomecareapp.caregiver;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +15,9 @@ import com.example.inhomecareapp.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -62,18 +65,21 @@ public class CaregiverHome extends AppCompatActivity {
 
     private void getPosts() {
         FirebaseFirestore.getInstance().collection("posts")
-                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot query) {
-                for (QueryDocumentSnapshot snapshot : query) {
-                    CustomerPost customerPost = snapshot.toObject(CustomerPost.class);
-                    customerPostList.add(customerPost);
-                }
+                .whereEqualTo("accept", false)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        customerPostList.clear();
 
-                customerPostsAdapter = new CustomerPostsAdapter(customerPostList);
-                recyclerView.setAdapter(customerPostsAdapter);
-            }
-        });
+                        for (QueryDocumentSnapshot snapshot : value) {
+                            CustomerPost customerPost = snapshot.toObject(CustomerPost.class);
+                            customerPostList.add(customerPost);
+                        }
+
+                        customerPostsAdapter = new CustomerPostsAdapter(customerPostList);
+                        recyclerView.setAdapter(customerPostsAdapter);
+                    }
+                });
     }
 
 

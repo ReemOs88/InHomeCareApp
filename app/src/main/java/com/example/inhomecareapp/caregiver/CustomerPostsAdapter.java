@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -13,8 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.inhomecareapp.CustomerPost;
 import com.example.inhomecareapp.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerPostsAdapter extends RecyclerView.Adapter<CustomerPostsAdapter.CustomerPostsViewHolder> {
     List<CustomerPost> posts;
@@ -39,7 +44,17 @@ public class CustomerPostsAdapter extends RecyclerView.Adapter<CustomerPostsAdap
         holder.acceptPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("accept", true);
 
+                FirebaseFirestore.getInstance().collection("posts")
+                        .document(customerPost.getPostId()).update(map)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(view.getContext(), "Post accepted", Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
         holder.contactCustomerBtn.setOnClickListener(new View.OnClickListener() {
