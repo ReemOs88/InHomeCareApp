@@ -14,7 +14,9 @@
         <entry key="..\:/Users/nadae/AndroidStudioProjects/InHomeCareApp/app/src/main/res/layout/customer_login_fragment.xml" value="0.176" />
         <entry key="..\:/Users/nadae/AndroidStudioProjects/InHomeCareApp/app/src/main/res/layout/customer_register_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_caregiver_profile.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_caregiver_register_tab_fragment.xml" value="0.2814814814814815" />
+        <entry key="app/src/main/res/layout/activity_customer_login.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/caregiver_login_fragment.xml" value="0.3098958333333333" />

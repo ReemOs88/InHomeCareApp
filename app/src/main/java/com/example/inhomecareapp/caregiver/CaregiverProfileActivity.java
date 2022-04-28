@@ -27,30 +27,34 @@ import com.squareup.picasso.Picasso;
 
 public class CaregiverProfileActivity extends AppCompatActivity {
     ImageView caregiverPicProfileActivity;
-    TextView caregiverNameProfileActivity,caregiverPhoneProfileActivity,
-            caregiverGenderProfileActivity,caregiverSpecializeProfileActivity;
+    TextView caregiverNameProfileActivity, caregiverPhoneProfileActivity,
+            caregiverGenderProfileActivity, caregiverSpecializeProfileActivity,
+            caregiverTypeOfService, caregiverSpecialist, caregiverAge;
     MaterialButton editCaregiverProfileActivity;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    StorageReference storageReference= FirebaseStorage.getInstance().getReference();
+    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private static final String TAG = "TAG";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_caregiver_profile);
-        FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
-        caregiverPicProfileActivity=findViewById(R.id.caregiver_pic_profile_activity);
-        caregiverNameProfileActivity=findViewById(R.id.caregiver_name_profile_activity);
-        caregiverPhoneProfileActivity=findViewById(R.id.caregiver_phone_profile_activity);
-        caregiverGenderProfileActivity=findViewById(R.id.caregiver_gender_profile_activity);
-        caregiverSpecializeProfileActivity=findViewById(R.id.caregiver_specialize_profile_activity);
-        editCaregiverProfileActivity=findViewById(R.id.edit_caregiver_profile_activity);
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        caregiverPicProfileActivity = findViewById(R.id.caregiver_pic_profile_activity);
+        caregiverNameProfileActivity = findViewById(R.id.caregiver_name_profile_activity);
+        caregiverPhoneProfileActivity = findViewById(R.id.caregiver_phone_profile_activity);
+        caregiverGenderProfileActivity = findViewById(R.id.caregiver_gender_profile_activity);
+        editCaregiverProfileActivity = findViewById(R.id.edit_caregiver_profile_activity);
+        caregiverTypeOfService = findViewById(R.id.caregiver_typOfService_profile_activity);
+        caregiverSpecialist = findViewById(R.id.caregiver_specialize_profile_activity);
+        caregiverAge = findViewById(R.id.caregiver_ages_profile_activity);
         getCaregiverData();
         editCaregiverProfileActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(CaregiverProfileActivity.this,CaregiverEditProfileActivity.class);
+                Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverEditProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -58,13 +62,13 @@ public class CaregiverProfileActivity extends AppCompatActivity {
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                int id=item.getItemId();
+                int id = item.getItemId();
                 if (id == R.id.home) {
                     Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverHome.class);
                     startActivity(intent);
                     return true;
                 }
-                if(id== R.id.logout){
+                if (id == R.id.logout) {
                     firebaseAuth.signOut();
                     finish();
                     return true;
@@ -78,16 +82,16 @@ public class CaregiverProfileActivity extends AppCompatActivity {
     }
 
     private void getCaregiverData() {
-        String uid= firebaseAuth.getCurrentUser().getUid();
+        String uid = firebaseAuth.getCurrentUser().getUid();
         firebaseFirestore.collection("inHomeCaregivers").document(uid)
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    CaregiverData caregiverData=task.getResult().toObject(CaregiverData.class);
-                    Log.i(TAG, "onComplete: "+caregiverData.toString());
+                if (task.isSuccessful()) {
+                    CaregiverData caregiverData = task.getResult().toObject(CaregiverData.class);
+                    Log.i(TAG, "onComplete: " + caregiverData.toString());
                     updateUi(caregiverData);
-                }else {
+                } else {
                     String errorMessage = task.getException().getLocalizedMessage();
                     Toast.makeText(CaregiverProfileActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, "onComplete: " + errorMessage);
@@ -102,6 +106,9 @@ public class CaregiverProfileActivity extends AppCompatActivity {
         caregiverPhoneProfileActivity.setText(caregiverData.getCaregiverPhoneRegister());
         caregiverGenderProfileActivity.setText(caregiverData.getGender());
         caregiverSpecializeProfileActivity.setText(caregiverData.getSelectedCategory());
+        caregiverTypeOfService.setText(caregiverData.getServiceSelected());
+        caregiverSpecialist.setText(caregiverData.getSelectedCategory());
+        caregiverAge.setText(caregiverData.getSelectedAge());
         Picasso.get().load(caregiverData.getImageUrl()).placeholder(R.drawable.profile)
                 .into(caregiverPicProfileActivity);
 
