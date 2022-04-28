@@ -18,6 +18,8 @@ public class CaregiverData {
         this.gender=gender;
     }
 
+    public CaregiverData() {
+    }
 
     public String getImageUrl() {
         return imageUrl;

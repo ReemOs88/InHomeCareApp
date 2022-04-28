@@ -21,9 +21,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.ktx.Firebase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class CaregiverProfileActivity extends AppCompatActivity {
     ImageView caregiverPicProfileActivity;
@@ -86,6 +86,7 @@ public class CaregiverProfileActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     CaregiverData caregiverData=task.getResult().toObject(CaregiverData.class);
                     Log.i(TAG, "onComplete: "+caregiverData.toString());
+                    updateUi(caregiverData);
                 }else {
                     String errorMessage = task.getException().getLocalizedMessage();
                     Toast.makeText(CaregiverProfileActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
@@ -93,6 +94,16 @@ public class CaregiverProfileActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    private void updateUi(CaregiverData caregiverData) {
+        caregiverNameProfileActivity.setText(caregiverData.getCaregiverNameRegister());
+        caregiverPhoneProfileActivity.setText(caregiverData.getCaregiverPhoneRegister());
+        caregiverGenderProfileActivity.setText(caregiverData.getGender());
+        caregiverSpecializeProfileActivity.setText(caregiverData.getSelectedCategory());
+        Picasso.get().load(caregiverData.getImageUrl()).placeholder(R.drawable.profile)
+                .into(caregiverPicProfileActivity);
 
     }
 }

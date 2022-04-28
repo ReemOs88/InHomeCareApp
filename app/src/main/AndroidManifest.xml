@@ -5,16 +5,19 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InHomeCareApp">
+        <activity
+            android:name=".customer.CustomerStayinContractActivity"
+            android:exported="false" />
         <activity
             android:name=".caregiver.CaregiverEditProfileActivity"
             android:exported="false" />
@@ -25,7 +28,7 @@
             android:name=".customer.CustomerProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".customer.CustomerContractActivity"
+            android:name=".customer.CustomerHourlyContractActivity"
             android:exported="false" />
         <activity
             android:name=".customer.CaregiverListActivity"
@@ -76,7 +79,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

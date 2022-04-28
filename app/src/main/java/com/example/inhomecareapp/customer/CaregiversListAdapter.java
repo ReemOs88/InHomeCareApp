@@ -32,12 +32,19 @@ public class CaregiversListAdapter extends RecyclerView.Adapter<CaregiversListAd
 
     @Override
     public void onBindViewHolder(@NonNull CaregiversListAdapter.CaregiversListViewHolder holder, int position) {
-      holder.caregiverContractBtn.setOnClickListener(new View.OnClickListener() {
+      holder.caregiverStayinContractBtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              Intent intent=new Intent(view.getContext(),CustomerContractActivity.class);
+              Intent intent=new Intent(view.getContext(),CustomerStayinContractActivity.class);
               view.getContext().startActivity(intent);
 
+          }
+      });
+      holder.caregiverHourlyContract.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Intent intent=new Intent(view.getContext(),CustomerHourlyContractActivity.class);
+              view.getContext().startActivity(intent);
           }
       });
     }
@@ -49,18 +56,20 @@ public class CaregiversListAdapter extends RecyclerView.Adapter<CaregiversListAd
 
     static class CaregiversListViewHolder extends RecyclerView.ViewHolder {
 
+
         TextView caregiverNameTv, caregiverGenderTv, caregiverSpecializeTv, caregiverServiceTypeTv, caregiverAgeTv;
-        MaterialButton caregiverContractBtn;
+        MaterialButton caregiverStayinContractBtn,caregiverHourlyContract;
 
         public CaregiversListViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            caregiverNameTv = itemView.findViewById(R.id.caregiver_name);
-            caregiverGenderTv = itemView.findViewById(R.id.caregiver_gender);
-            caregiverServiceTypeTv = itemView.findViewById(R.id.caregiver_serviceType);
-            caregiverSpecializeTv = itemView.findViewById(R.id.caregiver_specialize);
-            caregiverAgeTv = itemView.findViewById(R.id.caregiver_Age);
-            caregiverContractBtn = itemView.findViewById(R.id.contract_btn);
+            caregiverNameTv = itemView.findViewById(R.id.caregiver_name_list);
+            caregiverGenderTv = itemView.findViewById(R.id.caregiver_gender_list);
+            caregiverServiceTypeTv = itemView.findViewById(R.id.caregiver_serviceType_list);
+            caregiverSpecializeTv = itemView.findViewById(R.id.caregiver_category_list);
+            caregiverAgeTv = itemView.findViewById(R.id.caregiver_Age_list);
+            caregiverStayinContractBtn = itemView.findViewById(R.id.stay_in_contract_btn);
+            caregiverHourlyContract=itemView.findViewById(R.id.hourly_contract_btn);
 
         }
     }

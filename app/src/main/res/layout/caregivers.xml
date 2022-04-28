@@ -23,9 +23,10 @@
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_weight="1"
+
             android:layout_height="wrap_content">
             <ImageView
-                android:id="@+id/caregiver_profilePic_imageView"
+                android:id="@+id/caregiver_list_profilePic_imageView"
                 android:layout_width="@dimen/_120sdp"
                 android:layout_weight="1"
                 android:src="@drawable/profile"
@@ -33,49 +34,57 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:weightSum="2"
                 android:layout_height="match_parent">
                 <LinearLayout
+                    android:layout_margin="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:weightSum="2"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:id="@+id/caregiver_name"
+                        android:id="@+id/caregiver_name_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Name"
+                        android:textColor="@color/blue"
                         android:textSize="@dimen/_12sdp"/>
                     <TextView
-                        android:id="@+id/caregiver_gender"
+                        android:id="@+id/caregiver_gender_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/blue"
                         android:text="Gender"
                         android:textSize="@dimen/_12sdp"/>
 
                 </LinearLayout>
                 <LinearLayout
+                    android:layout_margin="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:weightSum="3"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:id="@+id/caregiver_serviceType"
+                        android:id="@+id/caregiver_serviceType_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/blue"
                         android:text="Service Type"
                         android:textSize="@dimen/_12sdp"/>
                     <TextView
-                        android:id="@+id/caregiver_specialize"
+                        android:id="@+id/caregiver_category_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Specialize"
+                        android:textColor="@color/blue"
+                        android:text="Category"
                         android:textSize="@dimen/_12sdp"/>
                     <TextView
-                        android:id="@+id/caregiver_Age"
+                        android:id="@+id/caregiver_Age_list"
+                        android:textColor="@color/blue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Age"
@@ -86,16 +95,39 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/contract_btn"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_35sdp"
+                android:id="@+id/stay_in_contract_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:backgroundTint="@color/babyBlue"
-                android:text="Contract"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="Stay in contract"
                 android:textSize="@dimen/_12sdp"
                 android:textAllCaps="false"
                 android:layout_gravity="center"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/hourly_contract_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/babyBlue"
+                android:text="Hourly contract"
+                android:textSize="@dimen/_12sdp"
+                android:textAllCaps="false"
+                />
         </LinearLayout>
+
+
+        </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 
 

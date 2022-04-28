@@ -43,6 +43,7 @@ public class CustomerRegisterTabFragment extends Fragment {
     RadioButton radioCustomerButtonMale;
     RadioButton radioCustomerButtonFemale;
     DatabaseReference databaseReference;
+    String gender="";
     private static final String TAG = "CustomerRegisterTabFrag";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -52,17 +53,7 @@ public class CustomerRegisterTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.customer_register_fragment, container, false);
-        caregiverProfilePicRegister=root.findViewById(R.id.caregiver_profile_Pic_register);
-//        caregiverProfilePicRegister.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                ImagePicker.with(requireActivity())
-//                        .crop()	    			//Crop image(Optional), Check Customization for more option
-//                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
-//                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-//                        .start();
-//            }
-//        });
+
         customerNameRegisterEt = root.findViewById(R.id.customerName_register);
         customerPassRegisterEt = root.findViewById(R.id.customerPass_register);
         customerEmailRegisterEt = root.findViewById(R.id.customerEmail_register);
@@ -75,12 +66,10 @@ public class CustomerRegisterTabFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent=new Intent(requireContext(), MapsActivity.class);
                 startActivity(intent);
-
-
             }
         });
-        radioCustomerButtonMale = root.findViewById(R.id.radio_button_1);
-        radioCustomerButtonFemale = root.findViewById(R.id.radio_button_2);
+        radioCustomerButtonMale = root.findViewById(R.id.radio_button_customer_male);
+        radioCustomerButtonFemale = root.findViewById(R.id.radio_button_customer_female);
         customerRegisterBtn = root.findViewById(R.id.customerRegister_btn);
 
 
@@ -88,7 +77,6 @@ public class CustomerRegisterTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                String gender="";
                 if(radioCustomerButtonMale.isChecked()){
                     gender="male";
                 } else if (radioCustomerButtonFemale.isChecked()){
@@ -100,7 +88,6 @@ public class CustomerRegisterTabFragment extends Fragment {
                 String customerPassRegister = customerPassRegisterEt.getText().toString().trim();
                 customerPhoneRegister = customerPhoneRegisterEt.getText().toString().trim();
                 customerAddressRegister = customerAddressRegisterEt.getText().toString().trim();
-
                 if (customerNameRegister.isEmpty() || customerEmailRegister.isEmpty() || customerPassRegister.isEmpty() ||
                         customerPhoneRegister.isEmpty() || customerAddressRegister.isEmpty()||gender.isEmpty()) {
                     Toast.makeText(requireContext(), "please fill all data", Toast.LENGTH_LONG).show();
@@ -126,9 +113,10 @@ public class CustomerRegisterTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(requireContext(), "Account is created", Toast.LENGTH_SHORT).show();
-                            uploadUCustomerData();
+                            Toast.makeText(requireContext(), "Please verify your email", Toast.LENGTH_SHORT).show();
                             sendVerificationEmail();
+                            uploadUCustomerData();
+
                         } else {
                             String errorMessage = task.getException().getLocalizedMessage();
                             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
@@ -175,10 +163,6 @@ public class CustomerRegisterTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            // email sent
-
-
-                            // after email is sent just logout the user and finish this activity
                             FirebaseAuth.getInstance().signOut();
 
                         }

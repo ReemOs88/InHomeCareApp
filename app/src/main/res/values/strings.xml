@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">InHomeCareApp</string>
     <string name="customer">Customer</string>
-    <string name="care_giver">Care giver</string>
+    <string name="care_giver">Caregiver</string>
     <string name="Name">Customer Name</string>
     <string name="customer_name">Name</string>
     <string name="customer_password">Password</string>
