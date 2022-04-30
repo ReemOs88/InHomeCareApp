@@ -27,9 +27,13 @@ import com.squareup.picasso.Picasso;
 
 public class CaregiverProfileActivity extends AppCompatActivity {
     ImageView caregiverPicProfileActivity;
-    TextView caregiverNameProfileActivity, caregiverPhoneProfileActivity,
-            caregiverGenderProfileActivity, caregiverSpecializeProfileActivity,
-            caregiverTypeOfService, caregiverSpecialist, caregiverAge;
+    TextView caregiverNameProfileActivity,
+            caregiverPhoneProfileActivity,
+            caregiverGenderProfileActivity,
+            caregiverSpecializeProfileActivity,
+            caregiverTypeOfService,
+            caregiverSpecialist,
+            caregiverAge;
     MaterialButton editCaregiverProfileActivity;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -105,7 +109,6 @@ public class CaregiverProfileActivity extends AppCompatActivity {
         caregiverNameProfileActivity.setText(caregiverData.getCaregiverNameRegister());
         caregiverPhoneProfileActivity.setText(caregiverData.getCaregiverPhoneRegister());
         caregiverGenderProfileActivity.setText(caregiverData.getGender());
-        caregiverSpecializeProfileActivity.setText(caregiverData.getSelectedCategory());
         caregiverTypeOfService.setText(caregiverData.getServiceSelected());
         caregiverSpecialist.setText(caregiverData.getSelectedCategory());
         caregiverAge.setText(caregiverData.getSelectedAge());
