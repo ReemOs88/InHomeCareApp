@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.example.inhomecareapp.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -17,6 +18,7 @@ public class CustomerHourlyContractActivity extends AppCompatActivity {
    TextInputEditText selectDateEt;
    TextInputEditText contractAddressEt;
    TextInputEditText enterTimeEt;
+   MaterialButton showContract;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,14 @@ public class CustomerHourlyContractActivity extends AppCompatActivity {
             }
         });
         enterTimeEt=findViewById(R.id.select_time_et);
+        showContract=findViewById(R.id.show_contract_btn);
+        showContract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CustomerHourlyContractActivity.this, ContractsActivity.class);
+                startActivity(intent);
+            }
+        });
         BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override

@@ -131,7 +131,7 @@ public class CustomerRegisterTabFragment extends Fragment {
 
     private void uploadUCustomerData() {
         CustomerData customerData = new CustomerData(customerNameRegister, customerEmailRegister,
-                customerPhoneRegister, customerAddressRegister);
+                customerPhoneRegister, customerAddressRegister,gender);
 
         firebaseFirestore
                 .collection("inHomeCustomers")

@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InHomeCareApp">
         <activity
+            android:name=".customer.ContractsActivity"
+            android:exported="false" />
+        <activity
             android:name=".customer.CustomerStayinContractActivity"
             android:exported="false" />
         <activity
