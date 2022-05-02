@@ -1,13 +1,15 @@
 package com.example.inhomecareapp.caregiver;
 
-public class CaregiverData {
-    private String imageUrl,caregiverNameRegister,caregiverEmailRegister,caregiverPhoneRegister,
-            serviceSelected,selectedCategory,selectedAge,gender;
+import java.io.Serializable;
 
-    public CaregiverData(String imageUrl,String caregiverNameRegister, String caregiverEmailRegister,
+public class CaregiverData implements Serializable {
+    private String imageUrl, caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister,
+            serviceSelected, selectedCategory, selectedAge, gender;
+
+    public CaregiverData(String imageUrl, String caregiverNameRegister, String caregiverEmailRegister,
                          String caregiverPhoneRegister, String serviceSelected, String selectedCategory, String selectedAge,
                          String gender) {
-        this.imageUrl=imageUrl;
+        this.imageUrl = imageUrl;
         this.caregiverNameRegister = caregiverNameRegister;
         this.caregiverEmailRegister = caregiverEmailRegister;
         this.caregiverPhoneRegister = caregiverPhoneRegister;
@@ -15,7 +17,7 @@ public class CaregiverData {
         this.serviceSelected = serviceSelected;
         this.selectedCategory = selectedCategory;
         this.selectedAge = selectedAge;
-        this.gender=gender;
+        this.gender = gender;
     }
 
     public CaregiverData() {

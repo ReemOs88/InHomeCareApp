@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.inhomecareapp.R;
+import com.example.inhomecareapp.caregiver.CaregiverData;
 import com.example.inhomecareapp.caregiver.CaregiverHome;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -22,9 +24,16 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerHome extends AppCompatActivity {
+    private static final String TAG = "CustomerHome";
+
     String[] servicesTypes = {"Hourly service", "Stay in service"};
     AutoCompleteTextView autoCompleteServiceType;
     ArrayAdapter<String> adapterServiceTypeItems;
@@ -42,6 +51,10 @@ public class CustomerHome extends AppCompatActivity {
     MaterialButton findCaregiverBtn;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
+    String serviceType = "";
+    String category = "";
+    String age = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +63,7 @@ public class CustomerHome extends AppCompatActivity {
         findCaregiverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CustomerHome.this, StayInCaregiverListActivity.class);
-                startActivity(intent);
+                findCareGivers();
             }
         });
 
@@ -62,7 +74,7 @@ public class CustomerHome extends AppCompatActivity {
         autoCompleteServiceType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                adapterServiceTypeItems.getItem(position);
+                serviceType = servicesTypes[position];
 
             }
         });
@@ -70,10 +82,10 @@ public class CustomerHome extends AppCompatActivity {
         autocompleteCategories = findViewById(R.id.autoComplete_select_category);
         adapterCategoriesItems = new ArrayAdapter<String>(this, R.layout.list_item_select_category, categories);
         autocompleteCategories.setAdapter(adapterCategoriesItems);
-        autoCompleteServiceType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        autocompleteCategories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                adapterCategoriesItems.getItem(position);
+                category = categories[position];
             }
         });
 
@@ -83,10 +95,11 @@ public class CustomerHome extends AppCompatActivity {
         autoCompleteTAges.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                adapterAgesItems.getItem(position);
+                age = ages[position];
 
             }
         });
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Create new post");
         View view = getLayoutInflater().inflate(R.layout.dialog_add_post, null);
@@ -113,7 +126,8 @@ public class CustomerHome extends AppCompatActivity {
 
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-                firestore.collection("posts").document(customerPost.getPostId())
+                firestore.collection("posts")
+                        .document(customerPost.getPostId())
                         .set(customerPost).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -146,21 +160,67 @@ public class CustomerHome extends AppCompatActivity {
                     startActivity(intent);
                     return true;
 
-                } if (id == R.id.item_customer_contract) {
+                }
+                if (id == R.id.item_customer_contract) {
                     Intent intent = new Intent(CustomerHome.this, CustomerContractsActivity.class);
                     startActivity(intent);
-                  return true;
-                }if (id == R.id.item_customer_Logout) {
+                    return true;
+                }
+                if (id == R.id.item_customer_Logout) {
                     firebaseAuth.signOut();
                     Toast.makeText(CustomerHome.this, "Logout successfully", Toast.LENGTH_SHORT).show();
                     finish();
                     return true;
                 }
-               return false;
+                return false;
             }
 
 
         });
+
+    }
+
+    private void findCareGivers() {
+        if (serviceType.isEmpty()) {
+            Toast.makeText(this, "Select type of service", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (category.isEmpty()) {
+            Toast.makeText(this, "Select category", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (age.isEmpty()) {
+            Toast.makeText(this, "Select age", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        FirebaseFirestore
+                .getInstance()
+                .collection("inHomeCaregivers")
+                .whereEqualTo("serviceSelected", serviceType)
+                .whereEqualTo("selectedCategory", category)
+                .whereEqualTo("selectedAge", age)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot query) {
+                        ArrayList<CaregiverData> caregivers = new ArrayList<>();
+
+                        for (DocumentSnapshot document : query.getDocuments()) {
+                            CaregiverData caregiverData = document.toObject(CaregiverData.class);
+                            caregivers.add(caregiverData);
+                        }
+
+                        Log.i(TAG, "onSuccess: " + caregivers.size());
+
+                        Intent intent = new Intent(CustomerHome.this, StayInCaregiverListActivity.class);
+                        intent.putExtra("caregivers", caregivers);
+                        startActivity(intent);
+                    }
+                });
+
 
     }
 }
