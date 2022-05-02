@@ -120,6 +120,7 @@
                     <com.google.android.material.button.MaterialButton
                         android:layout_width="@dimen/_150sdp"
                         android:layout_gravity="center"
+                        android:onClick="editProfile"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:backgroundTint="@color/babyBlue"
                         android:text="Edit profile"

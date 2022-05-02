@@ -40,6 +40,7 @@ public class CaregiverProfileActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private static final String TAG = "TAG";
+    CaregiverData caregiverData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +56,11 @@ public class CaregiverProfileActivity extends AppCompatActivity {
         caregiverTypeOfService = findViewById(R.id.caregiver_typOfService_profile_activity);
         caregiverSpecialist = findViewById(R.id.caregiver_specialize_profile_activity);
         caregiverAge = findViewById(R.id.caregiver_ages_profile_activity);
-        getCaregiverData();
         editCaregiverProfileActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverEditProfileActivity.class);
+                intent.putExtra("caregiver", caregiverData);
                 startActivity(intent);
             }
         });
@@ -78,7 +79,7 @@ public class CaregiverProfileActivity extends AppCompatActivity {
                     finish();
 
                 }
-                if(id==R.id.contract){
+                if (id == R.id.contract) {
                     Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverContractsActivity.class);
                     startActivity(intent);
                 }
@@ -89,6 +90,12 @@ public class CaregiverProfileActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getCaregiverData();
+    }
+
     private void getCaregiverData() {
         String uid = firebaseAuth.getCurrentUser().getUid();
         firebaseFirestore.collection("inHomeCaregivers").document(uid)
@@ -96,7 +103,7 @@ public class CaregiverProfileActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
-                    CaregiverData caregiverData = task.getResult().toObject(CaregiverData.class);
+                    caregiverData = task.getResult().toObject(CaregiverData.class);
                     Log.i(TAG, "onComplete: " + caregiverData.toString());
                     updateUi(caregiverData);
                 } else {

@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,20 +27,21 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class CustomerProfileActivity extends AppCompatActivity {
- TextView customerName, customerPhone,customerAddress,customerGender;
+    TextView customerName, customerPhone, customerAddress, customerGender;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    CustomerData customerData;
     private static final String TAG = "TAG";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
 
-        customerName=findViewById(R.id.customer_name_profile_activity);
-        customerPhone=findViewById(R.id.customer_phone_profile_activity);
-        customerAddress=findViewById(R.id.customer_address_profile_activity);
-        customerGender=findViewById(R.id.customer_gender_profile_activity);
-        getCustomerData();
+        customerName = findViewById(R.id.customer_name_profile_activity);
+        customerPhone = findViewById(R.id.customer_phone_profile_activity);
+        customerAddress = findViewById(R.id.customer_address_profile_activity);
+        customerGender = findViewById(R.id.customer_gender_profile_activity);
 
         BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -49,11 +52,13 @@ public class CustomerProfileActivity extends AppCompatActivity {
                     Intent intent = new Intent(CustomerProfileActivity.this, CustomerHome.class);
                     startActivity(intent);
                     return true;
-                }if (id == R.id.item_customer_contract) {
+                }
+                if (id == R.id.item_customer_contract) {
                     Intent intent = new Intent(CustomerProfileActivity.this, CustomerContractsActivity.class);
                     startActivity(intent);
                     return true;
-                }if (id == R.id.item_customer_Logout) {
+                }
+                if (id == R.id.item_customer_Logout) {
                     firebaseAuth.signOut();
                     Toast.makeText(CustomerProfileActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
                     finish();
@@ -63,8 +68,14 @@ public class CustomerProfileActivity extends AppCompatActivity {
             }
 
 
-
         });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getCustomerData();
     }
 
     private void getCustomerData() {
@@ -74,7 +85,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
-                    CustomerData customerData = task.getResult().toObject(CustomerData.class);
+                    customerData = task.getResult().toObject(CustomerData.class);
                     Log.i(TAG, "onComplete: " + customerData.toString());
                     updateUi(customerData);
                 } else {
@@ -93,4 +104,11 @@ public class CustomerProfileActivity extends AppCompatActivity {
         customerAddress.setText(customerData.getCustomerAddressRegister());
         customerGender.setText(customerData.getGender());
     }
+
+    public void editProfile(View view) {
+        Intent intent = new Intent(this, CustomerEditProfileActivity.class);
+        intent.putExtra("customer", customerData);
+        startActivity(intent);
+    }
+
 }

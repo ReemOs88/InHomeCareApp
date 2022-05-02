@@ -1,6 +1,8 @@
 package com.example.inhomecareapp.customer;
 
-public class CustomerData {
+import java.io.Serializable;
+
+public class CustomerData implements Serializable {
     private String customerNameRegister,customerEmailRegister,customerPhoneRegister,customerAddressRegister,gender;
 
     public CustomerData() {
