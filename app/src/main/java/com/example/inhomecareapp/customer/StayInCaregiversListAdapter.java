@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.caregiver.CaregiverData;
 import com.google.android.material.button.MaterialButton;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -39,6 +41,8 @@ public class StayInCaregiversListAdapter extends RecyclerView.Adapter<StayInCare
         holder.caregiverSpecializeTv.setText(caregiverData.getSelectedCategory());
         holder.caregiverAgeTv.setText(caregiverData.getSelectedAge());
 
+        Picasso.get().load(caregiverData.getImageUrl()).into(holder.profileImage);
+
         holder.caregiverStayInContractBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +62,7 @@ public class StayInCaregiversListAdapter extends RecyclerView.Adapter<StayInCare
     public class StayInCaregiversListViewHolder extends RecyclerView.ViewHolder {
         TextView caregiverNameTv, caregiverGenderTv, caregiverServiceTypeTv, caregiverSpecializeTv, caregiverAgeTv;
         MaterialButton caregiverStayInContractBtn;
+        ImageView profileImage;
 
         public StayInCaregiversListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +73,7 @@ public class StayInCaregiversListAdapter extends RecyclerView.Adapter<StayInCare
             caregiverSpecializeTv = itemView.findViewById(R.id.caregiver_category_list);
             caregiverAgeTv = itemView.findViewById(R.id.caregiver_Age_list);
             caregiverStayInContractBtn = itemView.findViewById(R.id.stay_in_contract_btn);
+            profileImage = itemView.findViewById(R.id.caregiver_list_profilePic_imageView);
 
         }
     }
