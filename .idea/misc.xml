@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/drawable/chat_edit_text_shape.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/send.xml" value="0.162" />
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_caregiver_contracts.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_caregiver_profile.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_caregiver_register_tab_fragment.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.25925925925925924" />

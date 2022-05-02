@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class CaregiverData implements Serializable {
     private String imageUrl, caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister,
-            serviceSelected, selectedCategory, selectedAge, gender;
+            serviceSelected, selectedCategory, selectedAge, gender, caregiverId;
 
     public CaregiverData(String imageUrl, String caregiverNameRegister, String caregiverEmailRegister,
                          String caregiverPhoneRegister, String serviceSelected, String selectedCategory, String selectedAge,
-                         String gender) {
+                         String gender, String caregiverId) {
         this.imageUrl = imageUrl;
         this.caregiverNameRegister = caregiverNameRegister;
         this.caregiverEmailRegister = caregiverEmailRegister;
@@ -18,9 +18,18 @@ public class CaregiverData implements Serializable {
         this.selectedCategory = selectedCategory;
         this.selectedAge = selectedAge;
         this.gender = gender;
+        this.caregiverId = caregiverId;
     }
 
     public CaregiverData() {
+    }
+
+    public String getCaregiverId() {
+        return caregiverId;
+    }
+
+    public void setCaregiverId(String caregiverId) {
+        this.caregiverId = caregiverId;
     }
 
     public String getImageUrl() {
