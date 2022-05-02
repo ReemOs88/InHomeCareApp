@@ -10,8 +10,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.inhomecareapp.CustomerPost;
 import com.example.inhomecareapp.R;
+import com.example.inhomecareapp.customer.CustomerPost;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.firebase.auth.FirebaseAuth;
