@@ -14,10 +14,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.inhomecareapp.CustomerPost;
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.caregiver.CaregiverHome;
-import com.example.inhomecareapp.caregiver.CaregiverProfileActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.button.MaterialButton;
@@ -42,6 +40,7 @@ public class CustomerHome extends AppCompatActivity {
     FloatingActionButton addPostBtn;
     AlertDialog dialogAddPost;
     MaterialButton findCaregiverBtn;
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,7 @@ public class CustomerHome extends AppCompatActivity {
         findCaregiverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CustomerHome.this, CaregiverListActivity.class);
+                Intent intent = new Intent(CustomerHome.this, StayInCaregiverListActivity.class);
                 startActivity(intent);
             }
         });
@@ -145,9 +144,19 @@ public class CustomerHome extends AppCompatActivity {
                 if (id == R.id.item_customer_profile) {
                     Intent intent = new Intent(CustomerHome.this, CustomerProfileActivity.class);
                     startActivity(intent);
+                    return true;
 
+                } if (id == R.id.item_customer_contract) {
+                    Intent intent = new Intent(CustomerHome.this, CustomerContractsActivity.class);
+                    startActivity(intent);
+                  return true;
+                }if (id == R.id.item_customer_Logout) {
+                    firebaseAuth.signOut();
+                    Toast.makeText(CustomerHome.this, "Logout successfully", Toast.LENGTH_SHORT).show();
+                    finish();
+                    return true;
                 }
-                return true;
+               return false;
             }
 
 

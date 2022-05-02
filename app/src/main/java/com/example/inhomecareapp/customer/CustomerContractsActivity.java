@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.inhomecareapp.R;
 
-public class ContractsActivity extends AppCompatActivity {
+public class CustomerContractsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contracts);
+        setContentView(R.layout.activity_customer_contracts);
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.inhomecareapp">
+    package="com.example.inhomecareapp" >
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -14,9 +14,15 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.InHomeCareApp">
+        android:theme="@style/Theme.InHomeCareApp" >
         <activity
-            android:name=".customer.ContractsActivity"
+            android:name=".caregiver.CaregiverContractsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.HourlyCaregiversActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerContractsActivity"
             android:exported="false" />
         <activity
             android:name=".customer.CustomerStayinContractActivity"
@@ -34,7 +40,7 @@
             android:name=".customer.CustomerHourlyContractActivity"
             android:exported="false" />
         <activity
-            android:name=".customer.CaregiverListActivity"
+            android:name=".customer.StayInCaregiverListActivity"
             android:exported="false" />
         <activity
             android:name=".customer.CustomerHome"
@@ -75,7 +81,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

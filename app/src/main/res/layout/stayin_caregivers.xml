@@ -95,34 +95,18 @@
 
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/stay_in_contract_btn"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/_100sdp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:backgroundTint="@color/babyBlue"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="Stay in contract"
+                android:text="Contract"
                 android:textSize="@dimen/_12sdp"
                 android:textAllCaps="false"
                 android:layout_gravity="center"/>
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/hourly_contract_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/babyBlue"
-                android:text="Hourly contract"
-                android:textSize="@dimen/_12sdp"
-                android:textAllCaps="false"
-                />
-        </LinearLayout>
+
+
 
 
         </LinearLayout>

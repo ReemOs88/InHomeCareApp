@@ -48,9 +48,18 @@ public class CustomerProfileActivity extends AppCompatActivity {
                 if (id == R.id.item_customer_profile) {
                     Intent intent = new Intent(CustomerProfileActivity.this, CustomerHome.class);
                     startActivity(intent);
-
+                    return true;
+                }if (id == R.id.item_customer_contract) {
+                    Intent intent = new Intent(CustomerProfileActivity.this, CustomerContractsActivity.class);
+                    startActivity(intent);
+                    return true;
+                }if (id == R.id.item_customer_Logout) {
+                    firebaseAuth.signOut();
+                    Toast.makeText(CustomerProfileActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
+                    finish();
+                    return true;
                 }
-                return true;
+                return false;
             }
 
 

@@ -7,34 +7,44 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.inhomecareapp.R;
-import com.example.inhomecareapp.caregiver.CustomerPostsAdapter;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class CaregiverListActivity extends AppCompatActivity {
-
+public class HourlyCaregiversActivity extends AppCompatActivity {
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_caregiver_list);
-        CaregiversListAdapter caregiversListAdapter = new CaregiversListAdapter(this);
+        setContentView(R.layout.activity_hourly_caregivers);
+        HourlyCaregiversAdapter hourlyCaregiversAdapter= new HourlyCaregiversAdapter();
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setAdapter(caregiversListAdapter);
-
+        recyclerView.setAdapter(hourlyCaregiversAdapter);
         BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.item_customer_profile) {
-                    Intent intent = new Intent(CaregiverListActivity.this, CustomerProfileActivity.class);
+                    Intent intent = new Intent(HourlyCaregiversActivity.this, CustomerProfileActivity.class);
                     startActivity(intent);
                     return true;
 
                 } else if(id == R.id.item_customer_home){
-                    Intent intent = new Intent(CaregiverListActivity.this, CustomerHome.class);
+                    Intent intent = new Intent(HourlyCaregiversActivity.this, CustomerHome.class);
                     startActivity(intent);
+                    return true;
+                }if (id == R.id.item_customer_contract) {
+                    Intent intent = new Intent(HourlyCaregiversActivity.this, CustomerContractsActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                if (id == R.id.item_customer_Logout) {
+                    firebaseAuth.signOut();
+                    Toast.makeText(HourlyCaregiversActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
+                    finish();
                     return true;
                 }
                 return false;

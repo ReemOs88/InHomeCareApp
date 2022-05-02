@@ -1,6 +1,5 @@
 package com.example.inhomecareapp.caregiver;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.inhomecareapp.CustomerPost;
+import com.example.inhomecareapp.customer.CustomerPost;
 import com.example.inhomecareapp.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;

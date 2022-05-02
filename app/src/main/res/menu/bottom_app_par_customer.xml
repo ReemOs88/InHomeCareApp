@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
     <item
         android:id="@+id/item_customer_home"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"
-        android:contentDescription="@string/content_description_home"
-        app:showAsAction="ifRoom"
-        />
 
+        />
     <item
         android:id="@+id/item_customer_profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profile"
-        app:showAsAction="ifRoom"
+
+        />
+    <item
+        android:id="@+id/item_customer_contract"
+        android:icon="@drawable/ic_baseline_contract_24"
+        android:title="@string/contract"
+
+
+        />
+    <item
+        android:id="@+id/item_customer_Logout"
+        android:icon="@drawable/ic_baseline_logout_24"
+        android:title="@string/logout"
+
+
         />
 
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/caregivers"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_weight="1"
+
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/hourly_caregiver_profilePic_imageView"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_weight="1"
+                    android:src="@drawable/profile"
+                    android:layout_height="@dimen/_80sdp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:weightSum="2"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:weightSum="2"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/hourly_caregiver_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Name"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/_12sdp"/>
+                        <TextView
+                            android:id="@+id/hourly_caregiver_gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue"
+                            android:text="Gender"
+                            android:textSize="@dimen/_12sdp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:weightSum="3"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/hourly_caregiver_serviceType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue"
+                            android:text="Service Type"
+                            android:textSize="@dimen/_12sdp"/>
+                        <TextView
+                            android:id="@+id/hourly_caregiver_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue"
+                            android:text="Category"
+                            android:textSize="@dimen/_12sdp"/>
+                        <TextView
+                            android:id="@+id/hourly_caregiver_Age"
+                            android:textColor="@color/blue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Age"
+                            android:textSize="@dimen/_12sdp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/hourly_contract_btn"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/babyBlue"
+                android:text="Contract"
+                android:textSize="@dimen/_12sdp"
+                android:textAllCaps="false"
+                android:layout_gravity="center"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
