@@ -1,5 +1,6 @@
 package com.example.inhomecareapp.caregiver;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,10 +11,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.inhomecareapp.CustomerPost;
+import com.example.inhomecareapp.customer.CustomerPost;
 import com.example.inhomecareapp.R;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -38,25 +39,29 @@ public class CaregiverHome extends AppCompatActivity {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         recyclerView = findViewById(R.id.recycler_view);
 
-        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        BottomNavigationView bottomAppBar = findViewById(R.id.bottomAppBar);
+        bottomAppBar.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+
                 int id = item.getItemId();
                 if (id == R.id.profile) {
                     Intent intent = new Intent(CaregiverHome.this, CaregiverProfileActivity.class);
                     startActivity(intent);
-                    return true;
 
-                } else if (id == R.id.logout) {
+                }
+                if (id == R.id.logout) {
                     firebaseAuth.signOut();
                     Toast.makeText(CaregiverHome.this, "Logout successfully", Toast.LENGTH_SHORT).show();
                     finish();
-                    return true;
-                }
-                return false;
-            }
 
+                }
+                if (id == R.id.contract) {
+                    Intent intent = new Intent(CaregiverHome.this, CaregiverContractsActivity.class);
+                    startActivity(intent);
+
+                }
+            }
 
         });
 

@@ -7,22 +7,25 @@
         android:id="@+id/profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profile"
-        android:contentDescription="@string/content_description_profile"
-        app:showAsAction="ifRoom"
+
         />
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/home"
-        android:contentDescription="@string/content_description_home"
-        app:showAsAction="ifRoom"
+
         />
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_baseline_logout_24"
         android:title="@string/logout"
-        android:contentDescription="@string/content_description_logout"
-        app:showAsAction="ifRoom"
+
+        />
+    <item
+        android:id="@+id/contract"
+        android:icon="@drawable/ic_baseline_contract_24"
+        android:title="@string/contract"
+
         />
 
 </menu>

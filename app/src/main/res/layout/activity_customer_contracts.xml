@@ -168,6 +168,13 @@
                                 android:textColor="@color/blue"
                                 android:text="Status:"
                                 android:textSize="@dimen/_12sdp"/>
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/blue"
+                                android:text="Type:"
+                                android:textSize="@dimen/_12sdp"/>
 
 
                         </LinearLayout>
@@ -206,6 +213,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Active"
+                                android:textSize="@dimen/_12sdp"/>
+                            <TextView
+
+                                android:textColor="@color/babyBlue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Stay in"
                                 android:textSize="@dimen/_12sdp"/>
                         </LinearLayout>
 

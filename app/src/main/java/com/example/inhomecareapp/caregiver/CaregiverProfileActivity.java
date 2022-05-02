@@ -17,6 +17,7 @@ import com.example.inhomecareapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -62,26 +63,29 @@ public class CaregiverProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        BottomNavigationView bottomAppBar = findViewById(R.id.bottomAppBar);
+        bottomAppBar.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.home) {
-                    Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverHome.class);
+                    Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverContractsActivity.class);
                     startActivity(intent);
-                    return true;
+
                 }
                 if (id == R.id.logout) {
                     firebaseAuth.signOut();
                     finish();
-                    return true;
+
                 }
-                return false;
+                if(id==R.id.contract){
+                    Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverContractsActivity.class);
+                    startActivity(intent);
+                }
+
             }
-
-
         });
+
 
     }
 
