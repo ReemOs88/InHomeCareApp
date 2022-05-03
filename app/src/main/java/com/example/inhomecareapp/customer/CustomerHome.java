@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -176,6 +177,23 @@ public class CustomerHome extends AppCompatActivity {
 
         });
 
+        getCustomerData();
+    }
+
+    private void getCustomerData() {
+        FirebaseFirestore.getInstance()
+                .collection("inHomeCustomers")
+                .document(firebaseAuth.getUid())
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        CustomerData customerData = documentSnapshot.toObject(CustomerData.class);
+
+                        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+                        sharedPreferences.edit().putString("customerName", customerData.getCustomerNameRegister()).apply();
+                    }
+                });
     }
 
     private void findCareGivers() {
