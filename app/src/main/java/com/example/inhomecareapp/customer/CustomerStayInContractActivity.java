@@ -90,9 +90,9 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
 
         selectDateStayInContract.setOnClickListener(view -> {
             if (isStayInService) {
-                simpleDatePciker.show();
-            } else {
                 dateRangePicker.show(getSupportFragmentManager(), "DatePickerRange");
+            } else {
+                simpleDatePciker.show();
             }
         });
 
