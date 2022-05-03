@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -35,6 +36,9 @@ public class CaregiverHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caregiver_home);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        sharedPreferences.edit().putString("userType", "caregiver").apply();
+
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         recyclerView = findViewById(R.id.recycler_view);
 
@@ -45,6 +49,11 @@ public class CaregiverHome extends AppCompatActivity {
                 int id = item.getItemId();
                 if (id == R.id.profile) {
                     Intent intent = new Intent(CaregiverHome.this, CaregiverProfileActivity.class);
+                    startActivity(intent);
+                    return true;
+
+                } else if (id == R.id.contract) {
+                    Intent intent = new Intent(CaregiverHome.this, CaregiverAllContractsActivity.class);
                     startActivity(intent);
                     return true;
 

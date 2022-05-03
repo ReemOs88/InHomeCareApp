@@ -2,22 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/home"
+        app:showAsAction="always" />
+    <item
+        app:showAsAction="always"
         android:id="@+id/profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profile" />
 
     <item
-        android:id="@+id/home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="@string/home" />
-
-    <item
+        app:showAsAction="always"
         android:id="@+id/contract"
         android:icon="@drawable/ic_baseline_contract_24"
         android:title="@string/contract" />
 
     <item
+        app:showAsAction="always"
         android:id="@+id/logout"
         android:icon="@drawable/ic_baseline_logout_24"
         android:title="@string/logout" />

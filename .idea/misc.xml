@@ -19,7 +19,8 @@
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_caregiver_contracts.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_caregiver_edit_profile.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_caregiver_profile.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_caregiver_home.xml" value="0.14114583333333333" />
+        <entry key="app/src/main/res/layout/activity_caregiver_profile.xml" value="0.2904191616766467" />
         <entry key="app/src/main/res/layout/activity_caregiver_register_tab_fragment.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.25925925925925924" />
         <entry key="app/src/main/res/layout/activity_customer_all_contracts.xml" value="0.3098958333333333" />
@@ -49,6 +50,8 @@
         <entry key="app/src/main/res/layout/stayin_caregivers.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/menu/bottom_app_par_caregiver.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/menu/bottom_app_par_customer.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/menu/customer_type_of_service_menu.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/menu/top_app_par.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>

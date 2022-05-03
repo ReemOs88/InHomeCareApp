@@ -3,6 +3,7 @@ package com.example.inhomecareapp.customer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -18,12 +19,19 @@ public class CustomerContractDetailsActivity extends AppCompatActivity {
     Contract contract;
 
     ActivityCustomerContractsBinding binding;
+    boolean isCaregiver = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCustomerContractsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        isCaregiver = sharedPreferences.getString("userType", "").equals("caregiver");
+        if (isCaregiver) {
+            binding.rateContractBtn.setVisibility(View.GONE);
+        }
 
         caregiverData = (CaregiverData) getIntent().getSerializableExtra("caregiver");
         contract = (Contract) getIntent().getSerializableExtra("contract");
@@ -41,9 +49,16 @@ public class CustomerContractDetailsActivity extends AppCompatActivity {
 
         binding.hourlyContactBtn.setOnClickListener(view -> {
             Intent intent = new Intent(this, ChatActivity.class);
-            intent.putExtra("userId", caregiverData.getCaregiverId());
-            intent.putExtra("username", caregiverData.getCaregiverNameRegister());
-            intent.putExtra("type", "customer");
+            if (isCaregiver) {
+                intent.putExtra("userId", contract.getCustomerId());
+                intent.putExtra("username", contract.getCustomerName());
+                intent.putExtra("type", "caregiver");
+            } else {
+                intent.putExtra("userId", caregiverData.getCaregiverId());
+                intent.putExtra("username", caregiverData.getCaregiverNameRegister());
+                intent.putExtra("type", "customer");
+            }
+
             startActivity(intent);
         });
 

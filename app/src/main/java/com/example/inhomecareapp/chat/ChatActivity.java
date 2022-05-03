@@ -34,9 +34,14 @@ public class ChatActivity extends AppCompatActivity {
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().hide();
+
         receiverId = getIntent().getStringExtra("userId");
         receiverName = getIntent().getStringExtra("username");
         type = getIntent().getStringExtra("type");
+
+        System.out.println("USERNAME => " + receiverName);
+        binding.tvUsername.setText(receiverName);
 
         binding.ivSend.setOnClickListener(view -> sendMessage());
 

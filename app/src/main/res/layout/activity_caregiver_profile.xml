@@ -197,16 +197,16 @@
             </androidx.cardview.widget.CardView>
 
         </androidx.core.widget.NestedScrollView>
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottomAppBar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"-->
 
 
-            app:menu="@menu/bottom_app_par_caregiver"
-            />
+<!--            app:menu="@menu/bottom_app_par_caregiver"-->
+<!--            />-->
 
 
 
