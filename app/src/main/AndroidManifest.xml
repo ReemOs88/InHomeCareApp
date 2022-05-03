@@ -33,7 +33,7 @@
             android:name=".customer.CustomerContractDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".customer.CustomerStayinContractActivity"
+            android:name=".customer.CustomerStayInContractActivity"
             android:exported="false" />
         <activity
             android:name=".caregiver.CaregiverEditProfileActivity"

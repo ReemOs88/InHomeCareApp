@@ -46,7 +46,7 @@ public class StayInCaregiversListAdapter extends RecyclerView.Adapter<StayInCare
         holder.caregiverStayInContractBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), CustomerStayinContractActivity.class);
+                Intent intent = new Intent(view.getContext(), CustomerStayInContractActivity.class);
                 intent.putExtra("caregiver", caregiverData);
                 view.getContext().startActivity(intent);
 

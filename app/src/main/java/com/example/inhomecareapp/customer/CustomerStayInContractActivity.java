@@ -21,13 +21,15 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CustomerStayinContractActivity extends AppCompatActivity {
+public class CustomerStayInContractActivity extends AppCompatActivity {
+    TextInputLayout textInputLayoutTime;
     TextInputEditText etSelectTime;
     TextView addressStayInContract, selectDateStayInContract;
     MaterialButton showContract;
@@ -39,11 +41,19 @@ public class CustomerStayinContractActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_stayin_contract);
+
+        textInputLayoutTime = findViewById(R.id.time_layout);
         addressStayInContract = findViewById(R.id.address_stay_in_contract);
         selectDateStayInContract = findViewById(R.id.select_date_stay_in_contract);
         etSelectTime = findViewById(R.id.select_time_contract);
 
         caregiverData = (CaregiverData) getIntent().getSerializableExtra("caregiver");
+
+        if (caregiverData.getServiceSelected().equals("Stay in service")) {
+            textInputLayoutTime.setVisibility(View.GONE);
+        } else {
+            textInputLayoutTime.setVisibility(View.VISIBLE);
+        }
 
         addressStayInContract.setOnClickListener(view -> {
             Intent intent = new Intent(this, MapsActivity.class);
@@ -89,23 +99,23 @@ public class CustomerStayinContractActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.item_customer_profile) {
-                    Intent intent = new Intent(CustomerStayinContractActivity.this, CustomerProfileActivity.class);
+                    Intent intent = new Intent(CustomerStayInContractActivity.this, CustomerProfileActivity.class);
                     startActivity(intent);
                     return true;
 
                 } else if (id == R.id.item_customer_home) {
-                    Intent intent = new Intent(CustomerStayinContractActivity.this, CustomerHome.class);
+                    Intent intent = new Intent(CustomerStayInContractActivity.this, CustomerHome.class);
                     startActivity(intent);
                     return true;
                 }
                 if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerStayinContractActivity.this, CustomerAllContractsActivity.class);
+                    Intent intent = new Intent(CustomerStayInContractActivity.this, CustomerAllContractsActivity.class);
                     startActivity(intent);
                     return true;
                 }
                 if (id == R.id.item_customer_Logout) {
                     firebaseAuth.signOut();
-                    Toast.makeText(CustomerStayinContractActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CustomerStayInContractActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
                     finish();
                     return true;
                 }
@@ -121,13 +131,27 @@ public class CustomerStayinContractActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         String customerName = sharedPreferences.getString("customerName", "");
 
+        String address = addressStayInContract.getText().toString();
+
+        if (address.isEmpty()) {
+            Toast.makeText(this, "address required", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        String date = selectDateStayInContract.getText().toString();
+
+        if (date.isEmpty()) {
+            Toast.makeText(this, "date required", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Contract contract = new Contract(
                 String.valueOf(System.currentTimeMillis()),
                 FirebaseAuth.getInstance().getUid(),
                 caregiverData.getCaregiverId(),
                 customerName,
-                addressStayInContract.getText().toString(),
-                selectDateStayInContract.getText().toString(),
+                address,
+                date,
                 etSelectTime.getText().toString()
         );
 
@@ -139,7 +163,7 @@ public class CustomerStayinContractActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Intent intent = new Intent(CustomerStayinContractActivity.this, CustomerContractDetailsActivity.class);
+                        Intent intent = new Intent(CustomerStayInContractActivity.this, CustomerContractDetailsActivity.class);
                         intent.putExtra("caregiver", caregiverData);
                         intent.putExtra("contract", contract);
                         startActivity(intent);
