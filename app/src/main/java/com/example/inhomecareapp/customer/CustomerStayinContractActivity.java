@@ -144,8 +144,8 @@ public class CustomerStayinContractActivity extends AppCompatActivity {
                         intent.putExtra("contract", contract);
                         startActivity(intent);
                     }
-                });
 
+                });
 
     }
 
@@ -156,5 +156,7 @@ public class CustomerStayinContractActivity extends AppCompatActivity {
             String address = data.getStringExtra("address");
             addressStayInContract.setText(address);
         }
+
     }
+
 }
