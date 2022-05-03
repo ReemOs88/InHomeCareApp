@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.util.Pair;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class CustomerStayInContractActivity extends AppCompatActivity {
@@ -40,6 +43,7 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
     String address = "";
     String date = "";
 
+    boolean isStayInService = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +58,10 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
         caregiverData = (CaregiverData) getIntent().getSerializableExtra("caregiver");
 
         if (caregiverData.getServiceSelected().equals("Stay in service")) {
+            isStayInService = true;
             textInputLayoutTime.setVisibility(View.GONE);
         } else {
+            isStayInService = false;
             textInputLayoutTime.setVisibility(View.VISIBLE);
         }
 
@@ -71,9 +77,24 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
                                 MaterialDatePicker.todayInUtcMilliseconds()))
                         .build();
 
+        final Calendar newCalendar = Calendar.getInstance();
+        final DatePickerDialog simpleDatePciker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                CustomerStayInContractActivity.this.date = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
+            }
 
-        selectDateStayInContract.setOnClickListener(view ->
-                dateRangePicker.show(getSupportFragmentManager(), "DatePickerRange"));
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
+        selectDateStayInContract.setOnClickListener(view -> {
+            if (isStayInService) {
+                simpleDatePciker.show();
+            } else {
+                dateRangePicker.show(getSupportFragmentManager(), "DatePickerRange");
+            }
+        });
 
         dateRangePicker.addOnPositiveButtonClickListener(selection -> {
             Long startDate = selection.first;
