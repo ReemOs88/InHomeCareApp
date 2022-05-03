@@ -117,8 +117,11 @@ public class CustomerHome extends AppCompatActivity {
                     return;
                 }
 
+                String username = getSharedPreferences("data", MODE_PRIVATE).getString("customerName", "");
+
                 CustomerPost customerPost = new CustomerPost(
                         FirebaseAuth.getInstance().getUid(),
+                        username,
                         String.valueOf(System.currentTimeMillis()),
                         content
                 );

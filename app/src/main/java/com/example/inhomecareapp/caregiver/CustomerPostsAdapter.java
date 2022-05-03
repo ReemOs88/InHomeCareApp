@@ -1,5 +1,6 @@
 package com.example.inhomecareapp.caregiver;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.inhomecareapp.chat.ChatActivity;
 import com.example.inhomecareapp.customer.CustomerPost;
 import com.example.inhomecareapp.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -56,12 +58,19 @@ public class CustomerPostsAdapter extends RecyclerView.Adapter<CustomerPostsAdap
                         });
             }
         });
+
         holder.contactCustomerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ChatActivity.class);
+                intent.putExtra("userId", customerPost.getUserId());
+                intent.putExtra("username", customerPost.getUsername());
+                intent.putExtra("type", "caregiver");
 
+                view.getContext().startActivity(intent);
             }
         });
+
     }
 
     @Override

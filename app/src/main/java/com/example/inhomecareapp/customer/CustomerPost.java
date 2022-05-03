@@ -3,6 +3,7 @@ package com.example.inhomecareapp.customer;
 public class CustomerPost {
 
     private String UserId;
+    private String username;
     private String postId;
     private String postContent;
     private boolean accept = false;
@@ -10,10 +11,19 @@ public class CustomerPost {
     public CustomerPost() {
     }
 
-    public CustomerPost(String userId, String postId, String postContent) {
+    public CustomerPost(String userId, String username, String postId, String postContent) {
         UserId = userId;
+        this.username = username;
         this.postId = postId;
         this.postContent = postContent;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public boolean isAccept() {
