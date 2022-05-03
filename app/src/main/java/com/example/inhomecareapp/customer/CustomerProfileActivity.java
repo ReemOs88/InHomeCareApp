@@ -9,22 +9,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.inhomecareapp.R;
-import com.example.inhomecareapp.caregiver.CaregiverData;
-import com.example.inhomecareapp.caregiver.CaregiverProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 public class CustomerProfileActivity extends AppCompatActivity {
     TextView customerName, customerPhone, customerAddress, customerGender;
@@ -54,7 +48,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
                     return true;
                 }
                 if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerProfileActivity.this, CustomerContractsActivity.class);
+                    Intent intent = new Intent(CustomerProfileActivity.this, CustomerAllContractsActivity.class);
                     startActivity(intent);
                     return true;
                 }

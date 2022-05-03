@@ -1,245 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".customer.CustomerContractsActivity">
+    tools:context=".customer.CustomerContractDetailsActivity">
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="100dp"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            android:paddingBottom="100dp">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/hourly_caregivers"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_20sdp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="@color/blue"
-                    android:textSize="@dimen/_14sdp"
-                    android:text="Caregiver info"/>
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Caregiver info"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:layout_height="0dp">
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
                         <ImageView
                             android:id="@+id/caregiver_list_profilePic_imageView"
                             android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_80sdp"
                             android:layout_weight="1"
-                            android:src="@drawable/profile"
-                            android:layout_height="@dimen/_80sdp"/>
+                            android:src="@drawable/profile" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_5sdp"
                             android:layout_weight="1"
-                            android:weightSum="2"
-                            android:layout_height="wrap_content">
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
                             <LinearLayout
-                                android:layout_margin="@dimen/_5sdp"
                                 android:layout_width="match_parent"
-                                android:orientation="vertical"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_5sdp"
                                 android:layout_weight="1"
-                                android:weightSum="4"
-                                android:layout_height="wrap_content">
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
                                 <TextView
                                     android:id="@+id/caregiver_name_list"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Name"
                                     android:textColor="@color/blue"
-                                    android:textSize="@dimen/_12sdp"/>
+                                    android:textSize="@dimen/_12sdp" />
+
                                 <TextView
                                     android:id="@+id/caregiver_gender_list"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/blue"
                                     android:text="Gender"
-                                    android:textSize="@dimen/_12sdp"/>
+                                    android:textColor="@color/blue"
+                                    android:textSize="@dimen/_12sdp" />
+
                                 <TextView
                                     android:id="@+id/caregiver_rate_tv"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/blue"
                                     android:text="rate"
-                                    android:textSize="@dimen/_12sdp"/>
+                                    android:textColor="@color/blue"
+                                    android:textSize="@dimen/_12sdp" />
 
 
                             </LinearLayout>
+
                             <LinearLayout
-                                android:layout_margin="@dimen/_5sdp"
                                 android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_5sdp"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
-                                android:weightSum="3"
-                                android:layout_height="wrap_content">
+                                android:weightSum="3">
+
                                 <TextView
                                     android:id="@+id/caregiver_serviceType_list"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/blue"
                                     android:text="Service Type"
-                                    android:textSize="@dimen/_12sdp"/>
+                                    android:textColor="@color/blue"
+                                    android:textSize="@dimen/_12sdp" />
+
                                 <TextView
                                     android:id="@+id/caregiver_category_list"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/blue"
                                     android:text="Category"
-                                    android:textSize="@dimen/_12sdp"/>
+                                    android:textColor="@color/blue"
+                                    android:textSize="@dimen/_12sdp" />
+
                                 <TextView
                                     android:id="@+id/caregiver_Age_list"
-                                    android:textColor="@color/blue"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Age"
-                                    android:textSize="@dimen/_12sdp"/>
+                                    android:textColor="@color/blue"
+                                    android:textSize="@dimen/_12sdp" />
                             </LinearLayout>
 
                         </LinearLayout>
 
 
                     </LinearLayout>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textStyle="bold"
+                        android:text="Contract info"
                         android:textColor="@color/blue"
                         android:textSize="@dimen/_14sdp"
-                        android:text="Contract info"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
-                        >
+                        android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:layout_margin="@dimen/_5sdp"
-                            android:layout_width="@dimen/_100sdp"
-                            android:orientation="vertical"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content">
-                            <TextView
-                               android:textStyle="bold"
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="wrap_content"
-                                android:text="Address:"
-                                android:textColor="@color/blue"
-                                android:textSize="@dimen/_12sdp"/>
-                            <TextView
-                               android:textStyle="bold"
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/blue"
-                                android:text="Date:"
-                                android:textSize="@dimen/_12sdp"/>
-                            <TextView
-                                android:textStyle="bold"
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/blue"
-                                android:text="Time:"
-                                android:textSize="@dimen/_12sdp"/>
-                            <TextView
-                                android:textStyle="bold"
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/blue"
-                                android:text="Status:"
-                                android:textSize="@dimen/_12sdp"/>
-                            <TextView
-                                android:textStyle="bold"
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/blue"
-                                android:text="Type:"
-                                android:textSize="@dimen/_12sdp"/>
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_margin="@dimen/_5sdp"
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:weightSum="3"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/customer_address_contract"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/babyBlue"
-                                android:text="Riyadh"
-                                android:textSize="@dimen/_12sdp"/>
-                            <TextView
-                                android:id="@+id/hourly_contract_date"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/babyBlue"
-                                android:text="1/5/2022"
-                                android:textSize="@dimen/_12sdp"/>
-                            <TextView
-                                android:id="@+id/hourly_contract_time"
-                                android:textColor="@color/babyBlue"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="1:00 PM"
-                                android:textSize="@dimen/_12sdp"/>
-                            <TextView
-
-                                android:textColor="@color/babyBlue"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Active"
-                                android:textSize="@dimen/_12sdp"/>
-                            <TextView
-
-                                android:textColor="@color/babyBlue"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Stay in"
-                                android:textSize="@dimen/_12sdp"/>
-                        </LinearLayout>
-
-                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="wrap_content"
+                                android:text="Address:"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="wrap_content"
+                                android:text="Date:"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="wrap_content"
+                                android:text="Time:"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="wrap_content"
+                                android:text="Status:"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="wrap_content"
+                                android:text="Type:"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:weightSum="3">
+
+                            <TextView
+                                android:id="@+id/customer_address_contract"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Riyadh"
+                                android:textColor="@color/babyBlue"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:id="@+id/hourly_contract_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="1/5/2022"
+                                android:textColor="@color/babyBlue"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:id="@+id/hourly_contract_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="1:00 PM"
+                                android:textColor="@color/babyBlue"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Active"
+                                android:textColor="@color/babyBlue"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Stay in"
+                                android:textColor="@color/babyBlue"
+                                android:textSize="@dimen/_12sdp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/rate_contract_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/_5sdp"
                             android:layout_weight="1"
                             android:backgroundTint="@color/babyBlue"
-                            android:layout_margin="@dimen/_5sdp"
                             android:text="Rate"
-                            android:textSize="@dimen/_12sdp"
                             android:textAllCaps="false"
-                            android:layout_gravity="center"/>
+                            android:textSize="@dimen/_12sdp" />
+
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/hourly_contact_btn"
                             android:layout_width="match_parent"
@@ -248,9 +276,8 @@
                             android:layout_weight="1"
                             android:backgroundTint="@color/babyBlue"
                             android:text="Contact"
-                            android:textSize="@dimen/_12sdp"
                             android:textAllCaps="false"
-                            />
+                            android:textSize="@dimen/_12sdp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -259,22 +286,22 @@
             </androidx.cardview.widget.CardView>
 
         </androidx.core.widget.NestedScrollView>
+
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
 
-            app:menu="@menu/bottom_app_par_customer"
-            />
+            app:menu="@menu/bottom_app_par_customer" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_post_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_add_24"
             app:layout_anchor="@id/bottomAppBar"
-            />
+            app:srcCompat="@drawable/ic_baseline_add_24" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

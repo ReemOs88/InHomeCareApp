@@ -37,7 +37,7 @@ public class HourlyCaregiversActivity extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 }if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(HourlyCaregiversActivity.this, CustomerContractsActivity.class);
+                    Intent intent = new Intent(HourlyCaregiversActivity.this, CustomerAllContractsActivity.class);
                     startActivity(intent);
                     return true;
                 }

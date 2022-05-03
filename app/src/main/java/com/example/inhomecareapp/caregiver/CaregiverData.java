@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class CaregiverData implements Serializable {
     private String imageUrl, caregiverNameRegister, caregiverEmailRegister, caregiverPhoneRegister,
             serviceSelected, selectedCategory, selectedAge, gender, caregiverId;
+    private double rate = 0.0;
 
     public CaregiverData(String imageUrl, String caregiverNameRegister, String caregiverEmailRegister,
                          String caregiverPhoneRegister, String serviceSelected, String selectedCategory, String selectedAge,
@@ -22,6 +23,14 @@ public class CaregiverData implements Serializable {
     }
 
     public CaregiverData() {
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 
     public String getCaregiverId() {
@@ -47,7 +56,6 @@ public class CaregiverData implements Serializable {
     public void setGender(String gender) {
         this.gender = gender;
     }
-
 
     public String getServiceSelected() {
         return serviceSelected;
@@ -97,7 +105,6 @@ public class CaregiverData implements Serializable {
         this.caregiverPhoneRegister = caregiverPhoneRegister;
     }
 
-
     @Override
     public String toString() {
         return "CaregiverData{" +
@@ -111,4 +118,5 @@ public class CaregiverData implements Serializable {
                 ", gender='" + gender + '\'' +
                 '}';
     }
+
 }

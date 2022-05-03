@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.caregiver.CaregiverData;
-import com.example.inhomecareapp.caregiver.CaregiverHome;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.button.MaterialButton;
@@ -29,7 +28,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CustomerHome extends AppCompatActivity {
     private static final String TAG = "CustomerHome";
@@ -162,7 +160,7 @@ public class CustomerHome extends AppCompatActivity {
 
                 }
                 if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerHome.this, CustomerContractsActivity.class);
+                    Intent intent = new Intent(CustomerHome.this, CustomerAllContractsActivity.class);
                     startActivity(intent);
                     return true;
                 }

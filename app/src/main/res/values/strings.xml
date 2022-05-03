@@ -28,7 +28,7 @@
     <string name="category">Category</string>
     <string name="age">Age</string>
     <string name="message">Message</string>
-    <string name="contract">contract</string>
+    <string name="contract">contracts</string>
     <string name="hourly_service">Hourly service</string>
     <string name="service_type">Service Type</string>
     <string name="please_write_your_need_in_detail">Please write your need in detail</string>

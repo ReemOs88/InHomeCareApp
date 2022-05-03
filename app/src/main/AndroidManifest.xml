@@ -16,11 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InHomeCareApp">
         <activity
+            android:name=".customer.CustomerAllContractsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.RateActivity"
+            android:exported="false" />
+        <activity
             android:name=".chat.ChatActivity"
             android:exported="false" />
-
         <activity
-            android:name=".customer.CustomerContractsActivity"
+            android:name=".customer.CustomerContractDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".customer.CustomerStayinContractActivity"

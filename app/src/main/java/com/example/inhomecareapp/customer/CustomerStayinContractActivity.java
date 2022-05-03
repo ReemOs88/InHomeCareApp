@@ -99,7 +99,7 @@ public class CustomerStayinContractActivity extends AppCompatActivity {
                     return true;
                 }
                 if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerStayinContractActivity.this, CustomerContractsActivity.class);
+                    Intent intent = new Intent(CustomerStayinContractActivity.this, CustomerAllContractsActivity.class);
                     startActivity(intent);
                     return true;
                 }
@@ -139,7 +139,7 @@ public class CustomerStayinContractActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Intent intent = new Intent(CustomerStayinContractActivity.this, CustomerContractsActivity.class);
+                        Intent intent = new Intent(CustomerStayinContractActivity.this, CustomerContractDetailsActivity.class);
                         intent.putExtra("caregiver", caregiverData);
                         intent.putExtra("contract", contract);
                         startActivity(intent);

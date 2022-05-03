@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.inhomecareapp.R;
-import com.example.inhomecareapp.caregiver.CaregiverEditProfileActivity;
-import com.example.inhomecareapp.caregiver.CaregiverHome;
-import com.example.inhomecareapp.caregiver.CaregiverProfileActivity;
 import com.example.inhomecareapp.databinding.ActivityCustomerEditProfileBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -54,7 +51,7 @@ public class CustomerEditProfileActivity extends AppCompatActivity {
                     return true;
                 }
                 if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerEditProfileActivity.this, CustomerContractsActivity.class);
+                    Intent intent = new Intent(CustomerEditProfileActivity.this, CustomerAllContractsActivity.class);
                     startActivity(intent);
                     return true;
                 }
