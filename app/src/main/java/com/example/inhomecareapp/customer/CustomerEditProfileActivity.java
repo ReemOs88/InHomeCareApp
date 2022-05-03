@@ -1,5 +1,6 @@
 package com.example.inhomecareapp.customer;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.inhomecareapp.MapsActivity;
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.databinding.ActivityCustomerEditProfileBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -65,6 +67,13 @@ public class CustomerEditProfileActivity extends AppCompatActivity {
             }
         });
 
+        binding.contractAddressEt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CustomerEditProfileActivity.this, MapsActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
     }
 
     public void editProfile(View view) {
@@ -116,4 +125,14 @@ public class CustomerEditProfileActivity extends AppCompatActivity {
                 });
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            String address = data.getStringExtra("address");
+            binding.contractAddressEt.setText(address);
+        }
+    }
+
 }
