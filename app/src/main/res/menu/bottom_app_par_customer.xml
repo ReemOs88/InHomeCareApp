@@ -14,7 +14,6 @@
         android:id="@+id/item_customer_profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profile"
-        app:showAsAction="always"
 
         />
     <item
@@ -29,7 +28,6 @@
 
         android:icon="@drawable/ic_baseline_logout_24"
         android:title="@string/logout"
-        app:showAsAction="always"
 
 
         />
