@@ -58,6 +58,10 @@ public class CustomerHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_home);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        sharedPreferences.edit().putString("userType", "customer").apply();
+
         findCaregiverBtn = findViewById(R.id.find_caregiverBtn);
         findCaregiverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
