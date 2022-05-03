@@ -37,6 +37,10 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
 
     CaregiverData caregiverData;
 
+    String address = "";
+    String date = "";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +87,8 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
             SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy");
             String formattedEndDate = df2.format(date2);
 
-            selectDateStayInContract.setText(formattedStartDate + " : " + formattedEndDate);
+            this.date = formattedStartDate + " : " + formattedEndDate;
+            selectDateStayInContract.setText(this.date);
         });
 
         showContract = findViewById(R.id.show_contract_btn);
@@ -131,14 +136,14 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         String customerName = sharedPreferences.getString("customerName", "");
 
-        String address = addressStayInContract.getText().toString();
+//        String address = addressStayInContract.getText().toString();
 
         if (address.isEmpty()) {
             Toast.makeText(this, "address required", Toast.LENGTH_LONG).show();
             return;
         }
 
-        String date = selectDateStayInContract.getText().toString();
+//        String date = selectDateStayInContract.getText().toString();
 
         if (date.isEmpty()) {
             Toast.makeText(this, "date required", Toast.LENGTH_LONG).show();
@@ -179,6 +184,7 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             String address = data.getStringExtra("address");
             addressStayInContract.setText(address);
+            this.address = address;
         }
 
     }
