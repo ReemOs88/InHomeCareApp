@@ -10,7 +10,6 @@ import android.view.View;
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.caregiver.CaregiverData;
 import com.example.inhomecareapp.chat.ChatActivity;
-import com.example.inhomecareapp.databinding.ActivityCaregiverContractsBinding;
 import com.example.inhomecareapp.databinding.ActivityCustomerContractsBinding;
 import com.squareup.picasso.Picasso;
 
