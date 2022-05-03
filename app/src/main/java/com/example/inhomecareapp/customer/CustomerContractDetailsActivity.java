@@ -51,6 +51,7 @@ public class CustomerContractDetailsActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RateActivity.class);
             intent.putExtra("caregiverId", caregiverData.getCaregiverId());
             startActivity(intent);
+            finish();
         });
 
 

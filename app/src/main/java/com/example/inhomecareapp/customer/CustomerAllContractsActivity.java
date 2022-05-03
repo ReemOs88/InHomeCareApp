@@ -21,13 +21,17 @@ public class CustomerAllContractsActivity extends AppCompatActivity {
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCustomerAllContractsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getAllContracts();
     }
 

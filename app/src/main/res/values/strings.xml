@@ -33,4 +33,5 @@
     <string name="service_type">Service Type</string>
     <string name="please_write_your_need_in_detail">Please write your need in detail</string>
     <string name="please_write_your_needs_in_detail" />
+    <string name="rate">Rate</string>
 </resources>
