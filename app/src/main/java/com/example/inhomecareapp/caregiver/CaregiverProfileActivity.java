@@ -64,29 +64,6 @@ public class CaregiverProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        BottomNavigationView bottomAppBar = findViewById(R.id.bottomAppBar);
-        bottomAppBar.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
-            @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.home) {
-                    Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverContractsActivity.class);
-                    startActivity(intent);
-
-                }
-                if (id == R.id.logout) {
-                    firebaseAuth.signOut();
-                    finish();
-
-                }
-                if (id == R.id.contract) {
-                    Intent intent = new Intent(CaregiverProfileActivity.this, CaregiverContractsActivity.class);
-                    startActivity(intent);
-                }
-
-            }
-        });
-
 
     }
 
