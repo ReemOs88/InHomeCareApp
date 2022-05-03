@@ -138,6 +138,7 @@ public class CaregiverEditProfileActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Uri> task) {
                 if (task.isSuccessful()) {
                     String imageUrl = task.getResult().toString();
+                    caregiverData.setImageUrl(imageUrl);
                     Log.i(TAG, "onComplete: " + imageUrl);
                     uploadUCaregiverData(imageUrl);
 
