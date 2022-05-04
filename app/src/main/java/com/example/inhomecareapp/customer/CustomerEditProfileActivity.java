@@ -42,30 +42,6 @@ public class CustomerEditProfileActivity extends AppCompatActivity {
             binding.radioButtonCustomerFemale.setChecked(true);
         }
 
-        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.item_customer_profile) {
-                    Intent intent = new Intent(CustomerEditProfileActivity.this, CustomerHome.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerEditProfileActivity.this, CustomerAllContractsActivity.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.item_customer_Logout) {
-                    firebaseAuth.signOut();
-                    Toast.makeText(CustomerEditProfileActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
-                    finish();
-                    return true;
-                }
-                return false;
-            }
-        });
 
         binding.contractAddressEt.setOnClickListener(new View.OnClickListener() {
             @Override

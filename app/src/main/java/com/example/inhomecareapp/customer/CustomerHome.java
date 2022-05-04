@@ -16,6 +16,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.inhomecareapp.MainActivity;
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.caregiver.CaregiverData;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -176,6 +177,8 @@ public class CustomerHome extends AppCompatActivity {
                     firebaseAuth.signOut();
                     Toast.makeText(CustomerHome.this, "Logout successfully", Toast.LENGTH_SHORT).show();
                     finish();
+                    Intent intent = new Intent(CustomerHome.this, MainActivity.class);
+                    startActivity(intent);
                     return true;
                 }
                 return false;

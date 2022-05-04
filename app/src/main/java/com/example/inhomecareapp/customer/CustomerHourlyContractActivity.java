@@ -26,14 +26,6 @@ public class CustomerHourlyContractActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_hourly_contract);
-       // contractAddressEt=findViewById(R.id.contract_address_et);
-       // contractAddressEt.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-           // public void onClick(View view) {
-             //   Intent intent=new Intent(CustomerContractActivity.this, MapsActivity.class);
-                //startActivity(intent);
-            //}
-        //});
         MaterialDatePicker datePicker=MaterialDatePicker.Builder.datePicker()
                 .setTitleText("Select date").setSelection(MaterialDatePicker.thisMonthInUtcMilliseconds()).build();
 
@@ -53,37 +45,6 @@ public class CustomerHourlyContractActivity extends AppCompatActivity {
 //                Intent intent = new Intent(CustomerHourlyContractActivity.this, CustomerContractDetailsActivity.class);
 //                startActivity(intent);
             }
-        });
-        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.item_customer_profile) {
-                    Intent intent = new Intent(CustomerHourlyContractActivity.this, CustomerProfileActivity.class);
-                    startActivity(intent);
-                    return true;
-
-                } else if(id == R.id.item_customer_home){
-                    Intent intent = new Intent(CustomerHourlyContractActivity.this, CustomerHome.class);
-                    startActivity(intent);
-                    return true;
-                } if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerHourlyContractActivity.this, CustomerAllContractsActivity.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.item_customer_Logout) {
-                    firebaseAuth.signOut();
-                    Toast.makeText(CustomerHourlyContractActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
-                    finish();
-                    return true;
-                }
-                return false;
-            }
-
-
-
         });
 
     }

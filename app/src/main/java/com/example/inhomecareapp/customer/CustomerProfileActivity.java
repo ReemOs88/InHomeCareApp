@@ -37,32 +37,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
         customerAddress = findViewById(R.id.customer_address_profile_activity);
         customerGender = findViewById(R.id.customer_gender_profile_activity);
 
-        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.item_customer_profile) {
-                    Intent intent = new Intent(CustomerProfileActivity.this, CustomerHome.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerProfileActivity.this, CustomerAllContractsActivity.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.item_customer_Logout) {
-                    firebaseAuth.signOut();
-                    Toast.makeText(CustomerProfileActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
-                    finish();
-                    return true;
-                }
-                return false;
-            }
 
-
-        });
 
     }
 

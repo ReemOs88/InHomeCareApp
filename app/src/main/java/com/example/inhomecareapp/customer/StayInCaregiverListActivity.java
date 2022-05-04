@@ -33,36 +33,6 @@ public class StayInCaregiverListActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setAdapter(caregiversListAdapter);
 
-        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.item_customer_profile) {
-                    Intent intent = new Intent(StayInCaregiverListActivity.this, CustomerProfileActivity.class);
-                    startActivity(intent);
-                    return true;
 
-                } else if(id == R.id.item_customer_home){
-                    Intent intent = new Intent(StayInCaregiverListActivity.this, CustomerHome.class);
-                    startActivity(intent);
-                    return true;
-                } if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(StayInCaregiverListActivity.this, CustomerAllContractsActivity.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.item_customer_Logout) {
-                    firebaseAuth.signOut();
-                    Toast.makeText(StayInCaregiverListActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
-                    finish();
-                    return true;
-                }
-                return false;
-            }
-
-
-
-        });
     }
 }
