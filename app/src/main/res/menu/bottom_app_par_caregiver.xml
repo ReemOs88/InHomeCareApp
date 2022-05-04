@@ -4,9 +4,16 @@
 
 
     <item
+        android:visible="false"
         android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/home"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/contract"
+        android:icon="@drawable/ic_baseline_contract_24"
+        android:title="@string/contract"
         app:showAsAction="always" />
     <item
         app:showAsAction="always"
@@ -14,11 +21,6 @@
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profile" />
 
-    <item
-        app:showAsAction="always"
-        android:id="@+id/contract"
-        android:icon="@drawable/ic_baseline_contract_24"
-        android:title="@string/contract" />
 
     <item
         app:showAsAction="always"
