@@ -17,10 +17,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class StayInCaregiversListAdapter extends RecyclerView.Adapter<StayInCaregiversListAdapter.StayInCaregiversListViewHolder> {
+public class CaregiversListAdapter extends RecyclerView.Adapter<CaregiversListAdapter.StayInCaregiversListViewHolder> {
     ArrayList<CaregiverData> caregivers;
 
-    public StayInCaregiversListAdapter(ArrayList<CaregiverData> caregivers) {
+    public CaregiversListAdapter(ArrayList<CaregiverData> caregivers) {
         this.caregivers = caregivers;
     }
 
@@ -28,7 +28,7 @@ public class StayInCaregiversListAdapter extends RecyclerView.Adapter<StayInCare
     @Override
     public StayInCaregiversListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new StayInCaregiversListViewHolder(LayoutInflater.
-                from(parent.getContext()).inflate(R.layout.stayin_caregivers, parent, false));
+                from(parent.getContext()).inflate(R.layout.caregivers, parent, false));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class StayInCaregiversListAdapter extends RecyclerView.Adapter<StayInCare
         holder.caregiverStayInContractBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), CustomerStayInContractActivity.class);
+                Intent intent = new Intent(view.getContext(), CustomerContractActivity.class);
                 intent.putExtra("caregiver", caregiverData);
                 view.getContext().startActivity(intent);
 

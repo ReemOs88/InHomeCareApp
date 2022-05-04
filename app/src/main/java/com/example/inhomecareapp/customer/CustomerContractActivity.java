@@ -2,14 +2,12 @@ package com.example.inhomecareapp.customer;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.util.Pair;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -19,7 +17,6 @@ import com.example.inhomecareapp.MapsActivity;
 import com.example.inhomecareapp.R;
 import com.example.inhomecareapp.caregiver.CaregiverData;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
@@ -31,7 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CustomerStayInContractActivity extends AppCompatActivity {
+public class CustomerContractActivity extends AppCompatActivity {
     TextInputLayout textInputLayoutTime;
     TextInputEditText etSelectTime;
     TextView addressStayInContract, selectDateStayInContract;
@@ -48,7 +45,7 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_stayin_contract);
+        setContentView(R.layout.activity_customer_contract);
 
         textInputLayoutTime = findViewById(R.id.time_layout);
         addressStayInContract = findViewById(R.id.address_stay_in_contract);
@@ -82,8 +79,8 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
-                CustomerStayInContractActivity.this.date = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
-                selectDateStayInContract.setText(CustomerStayInContractActivity.this.date);
+                CustomerContractActivity.this.date = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
+                selectDateStayInContract.setText(CustomerContractActivity.this.date);
             }
 
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -159,7 +156,7 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Intent intent = new Intent(CustomerStayInContractActivity.this, CustomerContractDetailsActivity.class);
+                        Intent intent = new Intent(CustomerContractActivity.this, CustomerContractDetailsActivity.class);
                         intent.putExtra("caregiver", caregiverData);
                         intent.putExtra("contract", contract);
                         startActivity(intent);

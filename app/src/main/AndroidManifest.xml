@@ -33,7 +33,7 @@
             android:name=".customer.CustomerContractDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".customer.CustomerStayInContractActivity"
+            android:name=".customer.CustomerContractActivity"
             android:exported="false" />
         <activity
             android:name=".caregiver.CaregiverEditProfileActivity"
@@ -45,10 +45,7 @@
             android:name=".customer.CustomerProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".customer.CustomerHourlyContractActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customer.StayInCaregiverListActivity"
+            android:name=".customer.CaregiversListActivity"
             android:exported="false" />
         <activity
             android:name=".customer.CustomerHome"

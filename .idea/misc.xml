@@ -32,9 +32,11 @@
         <entry key="app/src/main/res/layout/activity_customer_login.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_customer_profile.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_customer_stayin_contract.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_hourly_caregivers.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_rate.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_stayin_caregiver_list.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/caregiver_login_fragment.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/caregiver_register_fragment.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/layout/caregivers.xml" value="0.3098958333333333" />
@@ -42,6 +44,7 @@
         <entry key="app/src/main/res/layout/customer_posts.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/customer_register_fragment.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/layout/dialog_add_post.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/hourly_caregivers.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_contracts.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/item_recieve_message.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/item_send_message.xml" value="0.3098958333333333" />

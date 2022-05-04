@@ -241,7 +241,7 @@ public class CustomerHome extends AppCompatActivity {
 
                         Log.i(TAG, "onSuccess: " + caregivers.size());
 
-                        Intent intent = new Intent(CustomerHome.this, StayInCaregiverListActivity.class);
+                        Intent intent = new Intent(CustomerHome.this, CaregiversListActivity.class);
                         intent.putExtra("caregivers", caregivers);
                         startActivity(intent);
                     }
