@@ -9,12 +9,15 @@
 
     tools:context=".customer.CustomerHourlyContractActivity">
    <androidx.cardview.widget.CardView
-       android:layout_width="@dimen/_250sdp"
+       android:layout_width="match_parent"
        android:background="@drawable/card_view_shape"
-       android:layout_marginTop="@dimen/_50sdp"
+       android:layout_marginStart="@dimen/_20sdp"
+       android:layout_marginEnd="@dimen/_20sdp"
+
+       android:layout_marginTop="@dimen/_10sdp"
        app:cardCornerRadius="@dimen/_20sdp"
        android:layout_gravity="center"
-       android:layout_height="@dimen/_300sdp">
+       android:layout_height="@dimen/_380sdp">
       <LinearLayout
           android:layout_width="match_parent"
           android:orientation="vertical"
