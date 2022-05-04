@@ -120,37 +120,6 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
                 openContract();
             }
         });
-        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.item_customer_profile) {
-                    Intent intent = new Intent(CustomerStayInContractActivity.this, CustomerProfileActivity.class);
-                    startActivity(intent);
-                    return true;
-
-                } else if (id == R.id.item_customer_home) {
-                    Intent intent = new Intent(CustomerStayInContractActivity.this, CustomerHome.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.item_customer_contract) {
-                    Intent intent = new Intent(CustomerStayInContractActivity.this, CustomerAllContractsActivity.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.item_customer_Logout) {
-                    firebaseAuth.signOut();
-                    Toast.makeText(CustomerStayInContractActivity.this, "Logout successfully", Toast.LENGTH_SHORT).show();
-                    finish();
-                    return true;
-                }
-                return false;
-            }
-
-
-        });
 
     }
 
