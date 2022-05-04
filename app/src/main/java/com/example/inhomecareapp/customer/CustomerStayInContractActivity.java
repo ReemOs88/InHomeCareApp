@@ -83,6 +83,7 @@ public class CustomerStayInContractActivity extends AppCompatActivity {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
                 CustomerStayInContractActivity.this.date = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
+                selectDateStayInContract.setText(CustomerStayInContractActivity.this.date);
             }
 
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
