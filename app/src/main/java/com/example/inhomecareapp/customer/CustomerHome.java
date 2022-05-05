@@ -183,8 +183,6 @@ public class CustomerHome extends AppCompatActivity {
                 }
                 return false;
             }
-
-
         });
 
         getCustomerData();
@@ -246,8 +244,6 @@ public class CustomerHome extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-
-
     }
 }
 

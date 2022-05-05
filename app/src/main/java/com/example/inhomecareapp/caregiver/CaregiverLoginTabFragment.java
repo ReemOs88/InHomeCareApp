@@ -46,7 +46,6 @@ public class CaregiverLoginTabFragment extends Fragment {
                 startActivity(new Intent(requireContext(), ForgetPasswordActivity.class));
             }
         });
-
         caregiverLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,41 +62,31 @@ public class CaregiverLoginTabFragment extends Fragment {
                 firebaseAuth.signInWithEmailAndPassword(caregiverEmail,caregiverPass)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
-                                   if (task.getResult().getUser().isEmailVerified()){
-                                       FirebaseFirestore.getInstance().collection("inHomeCaregivers")
-                                               .document(task.getResult().getUser().getUid()).get()
-                                               .addOnSuccessListener(documentSnapshot -> {
-                                                   if (documentSnapshot.exists()) {
-                                                       Intent intent=new Intent(requireContext(), CaregiverHome.class);
-                                                       startActivity(intent);
-                                                       getActivity().finish();
-                                                   }
-                                                   else {
-                                                       Toast.makeText(requireContext(), "Not caregiver", Toast.LENGTH_SHORT).show();
-                                                   }
-                                               });
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                 if (task.getResult().getUser().isEmailVerified()){
+                 FirebaseFirestore.getInstance().collection("inHomeCaregivers")
+                  .document(task.getResult().getUser().getUid()).get()
+                  .addOnSuccessListener(documentSnapshot -> {
+                  if (documentSnapshot.exists()) {
+                  Intent intent=new Intent(requireContext(), CaregiverHome.class);
+                   startActivity(intent);
+                    getActivity().finish();
+                      } else {
+                    Toast.makeText(requireContext(), "Not caregiver", Toast.LENGTH_SHORT).show();
+                    }
+                    });
 
-                                   }
-                                   else{
-                                       Toast.makeText(requireContext(), "Please verify your email!", Toast.LENGTH_SHORT).show();
-                                   }
-                                }else {
-                                    String errorMessage=task.getException().getLocalizedMessage();
-                                    Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
-                                    Log.i(TAG, "onComplete: "+errorMessage);
-                                }
-
-
+                      } else{
+                     Toast.makeText(requireContext(), "Please verify your email!", Toast.LENGTH_SHORT).show();
+                      }
+                    }else {
+                    String errorMessage=task.getException().getLocalizedMessage();
+                   Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                    Log.i(TAG, "onComplete: "+errorMessage);
+                   }
                             }
                         });
-            }
-        });
-        return root;
-
-
-
-    }
-
-}
+                         }
+                       });
+                       return root; }}

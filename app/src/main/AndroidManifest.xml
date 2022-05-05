@@ -18,11 +18,9 @@
         <activity
             android:name=".caregiver.CaregiverAllContractsActivity"
             android:exported="false" />
-
         <activity
             android:name=".customer.CustomerAllContractsActivity"
             android:exported="false" />
-
         <activity
             android:name=".customer.RateActivity"
             android:exported="false" />

@@ -41,8 +41,6 @@ public class CustomerEditProfileActivity extends AppCompatActivity {
         } else {
             binding.radioButtonCustomerFemale.setChecked(true);
         }
-
-
         binding.contractAddressEt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

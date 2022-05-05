@@ -34,19 +34,15 @@ public class CaregiverLoginActivity extends AppCompatActivity {
                     viewPager.setCurrentItem(1);
                 }
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
 
     }
 }

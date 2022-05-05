@@ -277,23 +277,6 @@ public class CaregiverRegisterTabFragment extends Fragment {
 
     }
 
-   // private ArrayList<String> getCustomerList() {
-     //   ArrayList<String> customers = new ArrayList<>();
-       // customers.add("Hourly Services");
-        //customers.add("Stay-in services");
-
-        //return customers;
-    //}
-
-    //private ArrayList<String> getCategoryList() {
-      //  ArrayList<String> customers = new ArrayList<>();
-       // customers.add("Elderly");
-        //customers.add("People with special needs");
-        //customers.add("Children");
-
-        //return customers;
-    //}
-
     private void sendVerificationEmail() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 

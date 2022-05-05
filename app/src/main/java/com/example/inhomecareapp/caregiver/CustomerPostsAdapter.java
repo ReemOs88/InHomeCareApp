@@ -21,33 +21,26 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 public class CustomerPostsAdapter extends RecyclerView.Adapter<CustomerPostsAdapter.CustomerPostsViewHolder> {
     List<CustomerPost> posts;
-
     public CustomerPostsAdapter(List<CustomerPost> posts) {
         this.posts = posts;
     }
-
     @NonNull
     @Override
     public CustomerPostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new CustomerPostsViewHolder(LayoutInflater.
                 from(parent.getContext()).inflate(R.layout.customer_posts, parent, false));
     }
-
     @Override
     public void onBindViewHolder(@NonNull CustomerPostsViewHolder holder, int position) {
         CustomerPost customerPost = posts.get(position);
-
         holder.postDescriptionTv.setText(customerPost.getPostContent());
-
         holder.acceptPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Map<String, Object> map = new HashMap<>();
                 map.put("accept", true);
-
                 FirebaseFirestore.getInstance().collection("posts")
                         .document(customerPost.getPostId()).update(map)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -56,30 +56,6 @@ public class CaregiverEditProfileActivity extends AppCompatActivity {
         Picasso.get().load(caregiverData.getImageUrl()).placeholder(R.drawable.profile)
                 .into(binding.caregiverPicProfileActivity);
 
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.home) {
-                    Intent intent = new Intent(CaregiverEditProfileActivity.this, CaregiverHome.class);
-                    startActivity(intent);
-                    return true;
-                }
-                if (id == R.id.logout) {
-                    firebaseAuth.signOut();
-                    finish();
-                    return true;
-                }
-                if (id == R.id.profile) {
-                    Intent intent = new Intent(CaregiverEditProfileActivity.this, CaregiverProfileActivity.class);
-                    startActivity(intent);
-                    return true;
-                }
-                return false;
-            }
-
-
-        });
 
         binding.caregiverPicProfileActivity.setOnClickListener(new View.OnClickListener() {
             @Override

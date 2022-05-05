@@ -37,8 +37,6 @@ public class CustomerProfileActivity extends AppCompatActivity {
         customerAddress = findViewById(R.id.customer_address_profile_activity);
         customerGender = findViewById(R.id.customer_gender_profile_activity);
 
-
-
     }
 
     @Override
